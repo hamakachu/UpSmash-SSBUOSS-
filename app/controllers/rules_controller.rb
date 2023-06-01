@@ -4,7 +4,6 @@ class RulesController < ApplicationController
 
   def create
     @rule = Rule.new(rule_params)
-    binding.pry
     if @rule.save
       redirect_to @room
     else
