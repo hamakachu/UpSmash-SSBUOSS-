@@ -1,73 +1,29 @@
-/* 
-
-.head_wrapper{
-  height: 80px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 20px;
-}
-
-.button{
-  text-decoration: none;
-  color: black;
-}
-
-.users_{
-
-  width: 15%;
-  display: flex;
-}
-
-
-.pagelink{
-  width: calc(100% / 5);
-  
-} */
-
-.b-example-divider {
-  height: 3rem;
-  background-color: rgba(0, 0, 0, .1);
-  border: solid rgba(0, 0, 0, .15);
-  border-width: 1px 0;
-  box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
-}
-
-.form-control-dark {
-  color: #fff;
-  background-color: var(--bs-dark);
-  border-color: var(--bs-gray);
-}
-.form-control-dark:focus {
-  color: #fff;
-  background-color: var(--bs-dark);
-  border-color: #fff;
-  box-shadow: 0 0 0 .25rem rgba(255, 255, 255, .25);
-}
-
-.bi {
-  vertical-align: -.125em;
-  fill: currentColor;
-}
-
-.text-small {
-  font-size: 85%;
-}
-
-.dropdown-toggle {
-  outline: 0;
-}
-/* 調整 */
-
 header{
   height: 150px;
   width: 80vw;
   margin: 0 10%;
+  border-bottom: 1px solid lightgray;
 }
 
 .logo{
   height: 60px;
   width: auto;
+}
+
+.head-top{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.btn{
+  padding: 10px ;
+  font-weight: 600;
+  border-radius: 10px;
+  border: 1px solid #00bfff;
+  background-color: white;
+  color: #00bfff;
+  text-decoration: none;
 }
 
 .nav{
@@ -76,9 +32,15 @@ header{
   justify-content: space-around;
   align-items: center;
   height: 40px;
-  width: 100%;
+  width: auto;
   border: 1px solid lightgray;
+  border-radius: 5px;
   box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .1);
+}
+
+.nav-link{
+  text-decoration: none;
+  color: black;
 }
 
 .rule-img{

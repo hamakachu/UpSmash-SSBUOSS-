@@ -13,11 +13,13 @@
           <%= room.room_name %><br>
           <%= User.find(room.host_user_id).nickname %>
         <% end %>
-        <% if current_user %>
-          <%= form_with model: @room, url: join_room_path(room.id), local: true do |r| %>
-            <input name="user_id[user_ids][]" type="hidden" value=<%= current_user.id %>>
-            <%= r.submit "参加する", class:"room_submit" %>
-          <% end %>
+        <% if current_user || user_signed_in? %>
+          <div class="enter">
+            <%= form_with model: @room, url: join_room_path(room.id), local: true do |r| %>
+              <input name="user_id[user_ids][]" type="hidden" value=<%= current_user.id %>>
+              <%= r.submit "参加する", class:"btn room_submit" %>
+            <% end %>
+          </div>
         <% end %>
       </div>
     <% end %>

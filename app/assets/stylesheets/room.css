@@ -26,6 +26,7 @@
   text-decoration: none;
 }
 
+/* ルーム */
 .room_box{
   background-color: white;
   height: 120px;
@@ -40,6 +41,11 @@
   text-decoration: none;
   font-size: 24px;
   color: black;
+}
+
+.room_submit{
+  height: 35px;
+  padding: 0 10px;
 }
 
 .room_contents{
