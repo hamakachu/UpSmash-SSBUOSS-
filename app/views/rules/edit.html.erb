@@ -1,6 +1,6 @@
 <h3>ルール編集</h3>
   <div class="rule-form">
-    <%= form_with model: [@room, @rule], url: room_rule_path(@room), class: 'form', id: 'rule-form', local: true do |f| %>
+    <%= form_with model: [@room, @rule], url: room_rule_path(@room, rule_id: @room.rule.id), class: 'form edit', id: 'rule-form', local: true do |f| %>
       <div class="form-group">
         <%= f.label :room_code, "部屋ID" %>
         <%= f.text_field :room_code, class: 'form-control' %>

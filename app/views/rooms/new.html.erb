@@ -8,5 +8,5 @@
   </div>
   <%= r.text_area :room_name, class:"room_name_form", placeholder:"対戦ルームの名前を入力" %>
   <input name="room[user_ids][]" type="hidden" value=<%= current_user.id %>>
-  <%= r.submit "ルーム作成", class:"room_submit" %>
+  <%= r.submit "ルーム作成", class:"btn room_submit" %>
 <% end %>

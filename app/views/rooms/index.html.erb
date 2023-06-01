@@ -4,8 +4,10 @@
   フリー対戦
   </div>
   <div class="rooms_wrapper">
-    <%= link_to "対戦ルームを作成する", new_room_path, class:"roomcreate_link" %>
-
+    <% if user_signed_in? && current_user.room = [] %>
+      <%= link_to "対戦ルームを作成する", new_room_path, class:"btn room-create" %>
+    <% end %>
+    
     <%# ルーム一覧 %>
     <% @rooms.each do |room| %>
       <div class="room_box">

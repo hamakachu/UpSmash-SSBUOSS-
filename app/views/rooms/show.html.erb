@@ -2,7 +2,7 @@
 
 <div class="page-wrapper">
   <div class="pagetitle">
-  対戦ルーム
+    対戦ルーム
   </div>
 
   <div class="room_contents">
@@ -11,33 +11,32 @@
     <div class="rule">
       <%# ルールが保存されていれば表示 %>
       <% if @room.rule_selected? %>
-        <h3>ルール</h3>
-        <div>部屋ID：<%= @room.rule.room_code %></div>
-        <div>PASS：<%= @room.rule.room_pass %></div>
-        <div><%= Format.find(@room.rule.format_id).name %></div>
-        <div><%= MatchCount.find(@room.rule.match_count_id).name %></div>
-        
-        <%# 通話の可否で表示変更 %>
-        <% if @room.rule.voice_chat_id == 2 %>
-          <div>通話可</div>
-          <div>Discordフレンドコード: <%= @room.rule.discord %></div>
-        <% else %>
-          <div>通話不可</div>
-        <% end %>
-        <%= link_to "ルール変更", edit_room_rule_path(@room), id:"edit-rule-btn", class:'btn btn-primary' %>
-
         <%# ルール画像表示 %>
         <% if @room.rule.format_id == 2 %>
           <%= image_tag "Smash_Ball.svg.png", alt: "Image 1", class:"rule-img" %>
         <% elsif @room.rule.format_id == 3 %>
           <%= image_tag "Smash_Ball.svg.png", alt: "Image 2", class:"rule-img" %>
         <% end %>
+        <div class="rule-box">
+          <div class="rule-content">部屋ID：<%= @room.rule.room_code %></div>
+          <div class="rule-content">PASS：<%= @room.rule.room_pass %></div>
+          <div class="rule-content"><%= Format.find(@room.rule.format_id).name %></div>
+          <div class="rule-content"><%= MatchCount.find(@room.rule.match_count_id).name %></div>
+          <%# 通話の可否で表示変更 %>
+          <% if @room.rule.voice_chat_id == 2 %>
+            <div class="rule-content">通話可</div>
+            <div class="rule-content">Discordフレンドコード: <%= @room.rule.discord %></div>
+          <% else %>
+            <div class="rule-content">通話不可</div>
+          <% end %>
+          <%= link_to "ルール変更", edit_room_rule_path(@room, rule_id: @room.rule.id), id:"edit-rule-btn", class:'btn edit-rule rule-content' %>
+        </div>
 
       <%# ルール未選択なら表示 %>
       <% else %>
-        <h3>ルールを選択してください</h3>
-        <div class="rule-form">
-          <%= form_with model: [@room, @rule], url: room_rules_path(@room), class: 'form', id: 'rule-form', local: true do |f| %>
+        <div class="form">
+          <div>ルールを選択してください</div>
+          <%= form_with model: [@room, @rule], url: room_rules_path(@room), class: 'rule-form', id: 'rule-form', local: true do |f| %>
             <div class="form-group">
               <%= f.label :room_code, "部屋ID" %>
               <%= f.text_field :room_code, class: 'form-control' %>
@@ -77,34 +76,37 @@
         ユーザー２
       </div>
     </div>
+    
+    <%# チャット %>
     <div class="chat-box">
       <div class="messages-area">
         <% @messages.each do |message|%>
           <div class="message">
-            <div class="massage-user">
+            <div class="message-user">
               <%= User.find(message.user_id).nickname%>
             </div>
             <div class="message-content">
               <%= message.content%>
-              </div>
+            </div>
           </div>
         <% end %>
       </div>
-      <%= form_with model: [@room, @message], url: room_messages_path(@room), class: 'form', local: true do |f| %>
-        <div class="form-input">
-          <%= f.text_field :content, class: 'form-message', placeholder: 'type a message' %>
-        </div>
-        <%= f.submit '送信', class: 'form-submit' %>
+      <%= form_with model: [@room, @message], url: room_messages_path(@room), class:'chat-form', local: true do |f| %>
+        <%= f.text_field :content, class:"form-input", placeholder:'type a message' %>  
+        <%= f.submit '送信', class: 'btn form-submit' %>
       <% end %>
     </div>
+    <%# チャットここまで %>
   </div>
+  <%= link_to "ルームを解散する", room_path(@room), method: :delete, class:'btn delete' %>
 </div>
+
 
 <div id="form_popup" class="popup">
   <div class="overlay"></div>
-  <div class="rule-form">
+  <div class="rule-edit-form">
     ルール編集
-    <%= form_with model: [@room, @rule], url: room_rule_path(@room), class: 'form', id: 'rule-form', local: true do |f| %>
+    <%= form_with model: [@room, @rule], url: room_rule_path(@room), class:'form', id: 'rule-form', local: true do |f| %>
       <div class="form-group">
         <%= f.label :room_code, "部屋ID" %>
         <%= f.text_field :room_code, class: 'form-control', id:"rule_room_code" %>
