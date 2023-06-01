@@ -1,0 +1,12 @@
+
+<h1>ルーム作成</h1>
+
+<%= form_with model: @room, url: rooms_path, local: true do |r| %>
+  <%# ルーム名入力欄 %>
+  <div class="roomname">
+    対戦ルーム名
+  </div>
+  <%= r.text_area :room_name, class:"room_name_form", placeholder:"対戦ルームの名前を入力" %>
+  <input name="room[user_ids][]" type="hidden" value=<%= current_user.id %>>
+  <%= r.submit "ルーム作成", class:"room_submit" %>
+<% end %>

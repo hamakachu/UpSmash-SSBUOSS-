@@ -1,0 +1,89 @@
+.page-wrapper{
+  background-color: beige;
+  height: auto;
+  width: 70%;
+  margin: 0 15%;
+  
+}
+
+.pagetitle{
+  margin: 50px 0;
+  font-size: 40px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.rooms_wrapper{
+  width: 100%;
+}
+
+.roomcreate_link{
+  border: 1px solid lightgrey;
+  
+}
+
+.roomcreate_link{
+  text-decoration: none;
+}
+
+.room_box{
+  background-color: white;
+  height: 120px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, .1);
+  margin:15px 0;
+  padding: 5px 15px;
+}
+
+.room_link{
+  text-decoration: none;
+  font-size: 24px;
+  color: black;
+}
+
+.room_contents{
+  width: 100%;
+  height: 500px;
+  background-color: green;
+}
+
+.rule{
+  height: 250px;
+  background-color: white;
+  text-align: center;
+  border-radius: 5px;
+  border: 1px solid lightgray;
+  box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, .1);
+}
+
+.match-up{
+  display: flex;
+  align-items: center;
+}
+
+/* 画面暗転 */
+.popup{
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+}
+
+.overlay{
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0.7;
+}
+
+.rule-form{
+  background-color: white;
+  position: fixed;
+  top:25%;
+  left: 10%;
+  width: 80%;
+  height: 50%;
+}

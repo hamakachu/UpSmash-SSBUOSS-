@@ -1,0 +1,20 @@
+<header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+  <%= link_to image_tag("UpSmash-logo.png", class:"logo"), root_path %>
+  <div class="col-md-3 text-end">
+    <% if user_signed_in? %>
+      <%= link_to current_user.nickname, "#",class:"btn btn-outline-primary me-2" %>
+      <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:"btn btn-primary" %>
+    <% else %>
+      <%= link_to 'ログイン', new_user_session_path, class:"btn btn-outline-primary me-2" %>
+      <%= link_to '新規登録', new_user_registration_path, class:"btn btn-primary" %>
+    <% end %>
+  </div>
+  <ul class="nav ">
+    <li><%= link_to "フリー対戦", rooms_path, class:"nav-link px-2 link-secondary" %></li>
+    <li><a href="#" class="nav-link px-2 link-dark">対戦振り返り</a></li>
+    <li><a href="#" class="nav-link px-2 link-dark">記事</a></li>
+    <li><a href="#" class="nav-link px-2 link-dark">マイページ</a></li>
+    <li><a href="#" class="nav-link px-2 link-dark">その他</a></li>
+  </ul>
+</header>
+  

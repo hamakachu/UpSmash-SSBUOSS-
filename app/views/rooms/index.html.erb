@@ -1,0 +1,25 @@
+<%= render "shared/header" %>
+<div class="page-wrapper">
+  <div class="pagetitle">
+  フリー対戦
+  </div>
+  <div class="rooms_wrapper">
+    <%= link_to "対戦ルームを作成する", new_room_path, class:"roomcreate_link" %>
+
+    <%# ルーム一覧 %>
+    <% @rooms.each do |room| %>
+      <div class="room_box">
+        <%= link_to(room_path(room.id),class:"room_link") do %>
+          <%= room.room_name %><br>
+          <%= User.find(room.host_user_id).nickname %>
+        <% end %>
+        <% if current_user %>
+          <%= form_with model: @room, url: join_room_path(room.id), local: true do |r| %>
+            <input name="user_id[user_ids][]" type="hidden" value=<%= current_user.id %>>
+            <%= r.submit "参加する", class:"room_submit" %>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
