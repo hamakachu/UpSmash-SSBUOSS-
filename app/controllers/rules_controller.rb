@@ -25,7 +25,7 @@ class RulesController < ApplicationController
 
   private
   def find_rule
-    @rule = Rule.find(params[:id])
+    @rule = Rule.find(params[:rule_id])
   end
 
   def set_room

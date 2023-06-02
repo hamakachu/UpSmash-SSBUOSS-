@@ -1,5 +1,5 @@
 class RoomsController < ApplicationController
-  
+  before_action :set_room, only: [:show, :destroy]
   
   def index
     @rooms = Room.all
@@ -12,7 +12,7 @@ class RoomsController < ApplicationController
   def create
     @room = Room.new(room_params)
     if @room.save
-      redirect_to root_path
+      redirect_to rooms_path
     else
       render :new
     end
@@ -30,13 +30,21 @@ class RoomsController < ApplicationController
   end
 
   def show
-    @room = Room.find(params[:id])
     @rule = Rule.new
     @message = Message.new
     @messages = @room.messages.includes(:user)
   end
 
+  def destroy
+    @room.destroy
+    redirect_to root_path
+  end
+
   private
+
+  def set_room
+    @room = Room.find(params[:id])
+  end
 
   def room_params
     params.require(:room).permit(:room_name, user_ids: []).merge(host_user_id: current_user.id)
