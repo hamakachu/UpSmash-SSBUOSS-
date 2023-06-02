@@ -1,0 +1,36 @@
+<%= render "shared/header" %>
+
+<div class="feedbacks">
+  <div class="pagetitle">
+    活動開始フォーム
+  </div>
+  <%= form_with(model: @startform, url: startforms_path, method: :post, class:"feedbacks-area") do |form| %>
+    <div>
+      <p>1. 前回までのプレイを振り返って、対戦前にたてたアクションプランを実行できていますか？</p>
+      <%= form.radio_button :executed, true %>
+      <%= form.label :executed, 'できている' %>
+      <%= form.radio_button :executed, false %>
+      <%= form.label :executed, 'できていない' %>
+    </div>
+
+    <div>
+      <p>2. 上記の質問で、なぜそう思ったのか書き出しましょう。</p>
+      <%= form.text_area :reason, class:"feedback-form" %>
+    </div>
+
+    <div>
+      <p>3. 本日の目標を設定しましょう。また、それを実現するためのアクションプランを列挙しましょう。</p>
+      <div class="example">
+      -記入例-<br>
+      【目標】<br>
+      ・確定反撃を逃さない<br>
+      【アクションプラン】<br>
+      ・対戦相手の使用ファイターのフレーム表をみて、反撃を取れる技を調べる。<br>
+      ・ガードしたい技をイメージしてからガードを張る。
+    </div>
+      <%= form.text_area :action_plan, class:"feedback-form" %><br>
+    <div>
+      <%= form.submit '送信', class:"btn" %>
+    </div>
+  <% end %>
+</div>
