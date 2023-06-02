@@ -11,4 +11,5 @@ class RoomUser < ApplicationRecord
       errors.add(:base, "このルームはすでに定員に達しています")
     end
   end
+
 end
