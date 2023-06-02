@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_06_01_074731) do
+ActiveRecord::Schema.define(version: 2023_06_02_055036) do
 
   create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "content"
@@ -53,6 +53,16 @@ ActiveRecord::Schema.define(version: 2023_06_01_074731) do
     t.index ["room_id"], name: "index_rules_on_room_id"
   end
 
+  create_table "startforms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.boolean "executed", default: false, null: false
+    t.text "reason", null: false
+    t.text "action_plan", null: false
+    t.bigint "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_startforms_on_user_id"
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "nickname", null: false
     t.string "twitter_id"
@@ -73,4 +83,5 @@ ActiveRecord::Schema.define(version: 2023_06_01_074731) do
   add_foreign_key "room_users", "users"
   add_foreign_key "rooms", "users", column: "host_user_id"
   add_foreign_key "rules", "rooms"
+  add_foreign_key "startforms", "users"
 end
