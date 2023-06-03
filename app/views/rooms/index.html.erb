@@ -6,8 +6,10 @@
   <div class="rooms_wrapper">
     <% if user_signed_in? && user_already_joined? %>
       <%= link_to "対戦ルームを作成する", new_room_path, class:"btn room-create" %>
-    <% else %>
+    <% elsif user_signed_in? && !user_already_joined? %>
       あなたはルームに参加中です
+    <% else %>
+      フリー対戦機能を使用するには、ログインが必要です。
     <% end %>
     
     <%# ルーム一覧 %>

@@ -10,6 +10,8 @@
 
 .feedbacks{
   background-color: white;
+
+.feedbacks{
   width: 80vw;
   margin: 30px 10% 0;
   display: flex;
@@ -35,7 +37,7 @@
 .example{
   margin-bottom: 10px;
 }
-
+  
 .feedbacks-area{
   margin: 0 20px 20px;
 }
@@ -59,4 +61,4 @@
 
 .create-complete{
   text-align: center;
-}
+

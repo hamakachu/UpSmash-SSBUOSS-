@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: "rooms#index"
+  root to: "startforms#toppage"
+  resources :startforms do
+    member do
+      get :toppage
+    end
+  end
+
   resources :rooms do
     resources :messages
     resources :rules
