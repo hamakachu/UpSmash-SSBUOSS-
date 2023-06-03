@@ -1,3 +1,16 @@
+.feedback-links{
+  display: flex;
+  flex-direction: column;
+}
+
+.feedback-link{
+  text-decoration: none;
+  margin: 20px;
+}
+
+.feedbacks{
+  background-color: white;
+
 .feedbacks{
   width: 80vw;
   margin: 30px 10% 0;
@@ -9,7 +22,43 @@
   box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .1);
 }
 
+.feedback-content{
+  margin-bottom: 20px;
+
+}
+
+.feedback-info{
+  margin-bottom: 10px;
+}
+
+.examples{
+  font-size: 10px;
+}
+.example{
+  margin-bottom: 10px;
+}
+  
 .feedbacks-area{
   margin: 0 20px 20px;
 }
+
+.evaluation{
+
+}
+
+.feedback-form{
+  height: 100px;
+  width: 80%;
+}
+
+.good_bad{
+  height: 50px;
+}
+
+.feedback-btn{
+  
+}
+
+.create-complete{
+  text-align: center;
 

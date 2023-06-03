@@ -4,33 +4,51 @@
   <div class="pagetitle">
     活動開始フォーム
   </div>
-  <%= form_with(model: @startform, url: startforms_path, method: :post, class:"feedbacks-area") do |form| %>
-    <div>
-      <p>1. 前回までのプレイを振り返って、対戦前にたてたアクションプランを実行できていますか？</p>
-      <%= form.radio_button :executed, true %>
-      <%= form.label :executed, 'できている' %>
-      <%= form.radio_button :executed, false %>
-      <%= form.label :executed, 'できていない' %>
+  <%= form_with(model: @startform, url: startforms_path, method: :post, class:"feedbacks-area", data: { remote: false }) do |f| %>
+    <div class="feedback-content">
+      <div class="feedback-info">
+        1. 前回までのプレイを振り返って、対戦前にたてたアクションプランを実行できていますか？
+      <div>
+      <%= f.radio_button :executed, true %>
+      <%= f.label :executed, 'できている' %>
+      <%= f.radio_button :executed, false %>
+      <%= f.label :executed, 'できていない' %>
+    </div>
+
+    <div class="feedback-content">
+      <div class="feedback-info">
+        2. 上記の質問で、なぜそう思ったのか書き出しましょう。
+      </div>
+      <%= f.text_area :reason, class:"feedback-form" %>
+    </div>
+
+    <div class="feedback-content">
+      <div class="feedback-info">
+        3. 本日の目標を設定しましょう。また、それを実現するためのアクションプランを列挙しましょう。
+      </div>
+      <div class="examples">
+        <div class="example">
+          -記入例-<br>
+          【目標】<br>
+          ・確定反撃を逃さない<br>
+          【アクションプラン】<br>
+          ・対戦相手の使用ファイターのフレーム表をみて、反撃を取れる技を調べる。<br>
+          ・ガードしたい技をイメージしてからガードを張る。
+        </div>
+        <div class="example">
+          -コピペ用-<br>
+          【目標】<br>
+          ・<br>
+          【アクションプラン】<br>
+          ・<br>
+          ・
+        </div>
+      </div>
+      <%= f.text_area :action_plan, class:"feedback-form" %>
     </div>
 
     <div>
-      <p>2. 上記の質問で、なぜそう思ったのか書き出しましょう。</p>
-      <%= form.text_area :reason, class:"feedback-form" %>
-    </div>
-
-    <div>
-      <p>3. 本日の目標を設定しましょう。また、それを実現するためのアクションプランを列挙しましょう。</p>
-      <div class="example">
-      -記入例-<br>
-      【目標】<br>
-      ・確定反撃を逃さない<br>
-      【アクションプラン】<br>
-      ・対戦相手の使用ファイターのフレーム表をみて、反撃を取れる技を調べる。<br>
-      ・ガードしたい技をイメージしてからガードを張る。
-    </div>
-      <%= form.text_area :action_plan, class:"feedback-form" %><br>
-    <div>
-      <%= form.submit '送信', class:"btn" %>
+      <%= f.submit '送信', class:"btn feedback-btn" %>
     </div>
   <% end %>
 </div>
