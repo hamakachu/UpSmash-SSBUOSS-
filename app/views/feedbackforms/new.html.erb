@@ -1,0 +1,61 @@
+<%= render "shared/header" %>
+
+<div class="feedbacks">
+  <div class="pagetitle">
+    対戦振り返りフォーム
+  </div>
+  <%= form_with(model: @feedbackform, url: feedbackforms_path, method: :post, class:"feedbacks-area", data: { remote: false }) do |f| %>
+    <div class="feedback-content">
+      <div class="feedback-info">
+        1. 対戦の内容はいかがでしたか？10段階で評価しましょう。
+      </div>
+      <div class="evaluation">
+        <%= f.label :evaluation, "1" %>
+        <%= f.radio_button :evaluation, 1 %>
+        <%= f.label :evaluation, "2" %>
+        <%= f.radio_button :evaluation, 2 %>
+        <%= f.label :evaluation, "3" %>
+        <%= f.radio_button :evaluation, 3 %>
+        <%= f.label :evaluation, "4" %>
+        <%= f.radio_button :evaluation, 4 %>
+        <%= f.label :evaluation, "5" %>
+        <%= f.radio_button :evaluation, 5 %>
+        <%= f.label :evaluation, "6" %>
+        <%= f.radio_button :evaluation, 6 %>
+        <%= f.label :evaluation, "7" %>
+        <%= f.radio_button :evaluation, 7 %>
+        <%= f.label :evaluation, "8" %>
+        <%= f.radio_button :evaluation, 8 %>
+        <%= f.label :evaluation, "9" %>
+        <%= f.radio_button :evaluation, 9 %>
+        <%= f.label :evaluation, "10" %>
+        <%= f.radio_button :evaluation, 10 %>
+      </div>
+    </div>
+
+    <div class="feedback-content">
+      <div class="feedback-info">
+        2. 対戦を終えて、良かった点を書き出しましょう。
+      </div>
+      <%= f.text_area :good, class: "feedback-form good_bad" %>
+    </div>
+
+    <div class="feedback-content">
+      <div class="feedback-info">
+        3. 対戦を終えて、うまくいかなかった点を書き出しましょう。
+      </div>
+      <%= f.text_area :bad, class: "feedback-form good_bad" %>
+    </div>
+
+    <div class="feedback-content">
+      <div class="feedback-info">
+        4. 上記を踏まえて、次の試合のアクションプランを書き出しましょう。
+      </div>
+      <%= f.text_area :next_action, class: "feedback-form" %>
+    </div>
+
+    <div>
+      <%= f.submit '送信', class:"btn feedback-btn" %>
+    </div>
+  <% end %>
+</div>
