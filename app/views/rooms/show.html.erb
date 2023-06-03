@@ -10,25 +10,30 @@
     <div class="rule">
       <%# ルールが保存されていれば表示 %>
       <% if @room.rule_selected? %>
-        <%# ルール画像表示 %>
-        <% if @room.rule.format_id == 2 %>
-          <%= image_tag "Smash_Ball.svg.png", alt: "Image 1", class:"rule-img" %>
-        <% elsif @room.rule.format_id == 3 %>
-          <%= image_tag "Smash_Ball.svg.png", alt: "Image 2", class:"rule-img" %>
-        <% end %>
-        <div class="rule-box">
-          <div class="rule-content">部屋ID：<%= @room.rule.room_code %></div>
-          <div class="rule-content">PASS：<%= @room.rule.room_pass %></div>
-          <div class="rule-content"><%= Format.find(@room.rule.format_id).name %></div>
-          <div class="rule-content"><%= MatchCount.find(@room.rule.match_count_id).name %></div>
-          <%# 通話の可否で表示変更 %>
-          <% if @room.rule.voice_chat_id == 2 %>
-            <div class="rule-content">通話可</div>
-            <div class="rule-content">Discordフレンドコード: <%= @room.rule.discord %></div>
-          <% else %>
-            <div class="rule-content">通話不可</div>
-          <% end %>
-          <%= link_to "ルール変更", edit_room_rule_path(@room, rule_id: @room.rule.id), id:"edit-rule-btn", class:'btn edit-rule rule-content' %>
+        <div class="decided-rule">
+          <%# 選択可能ステージ %>
+          <div class="pickable-stage">
+            <% if @room.rule.format_id == 2 %>
+              <%= image_tag "Smash_Ball.svg.png", alt: "Image 1", class:"rule-img" %>
+            <% elsif @room.rule.format_id == 3 %>
+              <%= image_tag "Smash_Ball.svg.png", alt: "Image 2", class:"rule-img" %>
+            <% end %>
+          </div>
+          <%# 情報 %>
+          <div class="rule-box">
+            <div class="rule-content">部屋ID：<%= @room.rule.room_code %></div>
+            <div class="rule-content">PASS：<%= @room.rule.room_pass %></div>
+            <div class="rule-content"><%= Format.find(@room.rule.format_id).name %></div>
+            <div class="rule-content"><%= MatchCount.find(@room.rule.match_count_id).name %></div>
+            <%# 通話の可否で表示変更 %>
+            <% if @room.rule.voice_chat_id == 2 %>
+              <div class="rule-content">通話可</div>
+              <div class="rule-content">Discordフレンドコード: <%= @room.rule.discord %></div>
+            <% else %>
+              <div class="rule-content">通話不可</div>
+            <% end %>
+            <%= link_to "ルール変更", edit_room_rule_path(@room, rule_id: @room.rule.id), id:"edit-rule-btn", class:'btn edit-rule rule-content' %>
+          </div>
         </div>
 
       <%# ルール未選択なら表示 %>
@@ -54,7 +59,7 @@
                   <%= f.collection_select(:format_id, Format.all, :id, :name, {}, {class:"form-control"}) %><br>
                   <%= f.collection_select(:match_count_id, MatchCount.all, :id, :name, {}, {class:"form-control"}) %><br>
                   <%= f.collection_select(:voice_chat_id, VoiceChat.all, :id, :name, {}, {class:"form-control"}) %><br>
-                  <%= f.text_field :discorde, class: 'form-control' %><br>
+                  <%= f.text_field :discord, class: 'form-control' %><br>
                 </div>
               </div>
               <div>

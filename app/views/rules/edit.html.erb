@@ -21,9 +21,9 @@
         <%= f.label :voice_chat, "通話の可否" %>
         <%= f.collection_select(:voice_chat_id, VoiceChat.all, :id, :name, {}, {class:"rule-select"}) %>
       </div>
-      <div class="form-group" id="discord-input-group" style="display: none;">
+      <div class="form-group" id="discord-input-group">
         <%= f.label :discord, "discordフレンドコード" %>
-        <%= f.text_field :discorde, class: 'form-control' %>
+        <%= f.text_field :discord, class: 'form-control' %>
       </div>
       <%= f.submit 'ルールを保存', class:'btn btn-primary' %>
     <% end %>

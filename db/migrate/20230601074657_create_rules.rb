@@ -3,7 +3,7 @@ class CreateRules < ActiveRecord::Migration[6.0]
     create_table :rules do |t|
       t.integer :format_id, null: false
       t.integer :match_count_id, null: false
-      t.string :voice_chat_id, null: false
+      t.integer :voice_chat_id, null: false
       t.string :discord
       t.string :room_code, null: false
       t.integer :room_pass, null: false
