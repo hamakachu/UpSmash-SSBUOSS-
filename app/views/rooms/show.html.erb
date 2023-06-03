@@ -6,7 +6,6 @@
   </div>
 
   <div class="room_contents">
-    
     <%# ルール %>
     <div class="rule">
       <%# ルールが保存されていれば表示 %>
@@ -23,7 +22,7 @@
           <div class="rule-content"><%= Format.find(@room.rule.format_id).name %></div>
           <div class="rule-content"><%= MatchCount.find(@room.rule.match_count_id).name %></div>
           <%# 通話の可否で表示変更 %>
-          <% if @room.rule.voice_chat_id = 2 %>
+          <% if @room.rule.voice_chat_id == 2 %>
             <div class="rule-content">通話可</div>
             <div class="rule-content">Discordフレンドコード: <%= @room.rule.discord %></div>
           <% else %>
@@ -34,48 +33,42 @@
 
       <%# ルール未選択なら表示 %>
       <% else %>
-        <div class="form">
-          <div>ルールを選択してください</div>
-          <%= form_with model: [@room, @rule], url: room_rules_path(@room), class: 'rule-form', id: 'rule-form', local: true do |f| %>
-            <div class="form-group">
-              <%= f.label :room_code, "部屋ID" %>
-              <%= f.text_field :room_code, class: 'form-control' %>
+        <% if current_user.id == @room.host_user_id %>
+          <div class="select-rule">
+            <div class="rule-notice">
+              ルールを選択してください
             </div>
-            <div class="form-group">
-              <%= f.label :room_pass, "部屋PASS" %>
-              <%= f.text_field :room_pass, class: 'form-control' %>
-            </div>            
-            <div class="form-group">
-              <%= f.label :format, "形式" %>
-              <%= f.collection_select(:format_id, Format.all, :id, :name, {}, {class:"rule-select"}) %>
-            </div>
-            <div class="form-group">
-              <%= f.label :match_count, "試合数" %>
-              <%= f.collection_select(:match_count_id, MatchCount.all, :id, :name, {}, {class:"rule-select"}) %>
-            </div>
-            <div class="form-group">
-              <%= f.label :voice_chat, "通話の可否" %>
-              <%= f.collection_select(:voice_chat_id, VoiceChat.all, :id, :name, {}, {class:"rule-select"}) %>
-            </div>
-            <div class="form-group" id="discord-input-group" style="display: none;">
-              <%= f.label :discord, "discordフレンドコード" %>
-              <%= f.text_field :discorde, class: 'form-control' %>
-            </div>
-            <%= f.submit 'ルールを保存', class:'btn btn-primary' %>
-          <% end %>
-        </div>
+            <%= form_with model: [@room, @rule], url: room_rules_path(@room), id:'rule-form', local: true do |f| %>
+              <div class='rule-form'>
+                <div class="rule-labels">
+                  <%= f.label :room_code, "部屋ID", class:"rule-rabel" %><br>
+                  <%= f.label :room_pass, "部屋PASS", class:"rule-rabel" %><br>
+                  <%= f.label :format, "形式", class:"rule-rabel" %><br>
+                  <%= f.label :match_count, "試合数", class:"rule-rabel" %><br>
+                  <%= f.label :voice_chat, "通話の可否", class:"rule-rabel" %><br>
+                  <%= f.label :discord, "discord", class:"rule-rabel" %>
+                </div>
+                <div class="rule-input">
+                  <%= f.text_field :room_code, class: 'form-control' %><br>
+                  <%= f.text_field :room_pass, class: 'form-control' %><br>
+                  <%= f.collection_select(:format_id, Format.all, :id, :name, {}, {class:"form-control"}) %><br>
+                  <%= f.collection_select(:match_count_id, MatchCount.all, :id, :name, {}, {class:"form-control"}) %><br>
+                  <%= f.collection_select(:voice_chat_id, VoiceChat.all, :id, :name, {}, {class:"form-control"}) %><br>
+                  <%= f.text_field :discorde, class: 'form-control' %><br>
+                </div>
+              </div>
+              <div>
+                <%= f.submit 'ルールを保存', class:'btn rule-submit' %>
+              </div>
+            <% end %>
+          </div>
+        <% else %>
+          ホストがルールを選択するまでお待ちください
+        <% end %>
       <% end %>
     </div>
     <%# ルールここまで %>
-
-    <div class="match-up">
-      <div>
-        ユーザー１
-      </div>
-      <div>
-        ユーザー２
-      </div>
-    </div>
+    <br>
     
     <%# チャット %>
     <div class="chat-box">
@@ -98,9 +91,12 @@
     </div>
     <%# チャットここまで %>
   </div>
-  <%= link_to "ルームを解散する", room_path(@room), method: :delete, class:'btn delete' %>
 </div>
-
+<% if current_user.id == @room.host_user_id %>
+  <div class="delete">
+    <%= link_to "ルームを解散する", room_path(@room), method: :delete, class:'btn' %>
+  </div>
+<% end %>
 
 <div id="form_popup" class="popup">
   <div class="overlay"></div>

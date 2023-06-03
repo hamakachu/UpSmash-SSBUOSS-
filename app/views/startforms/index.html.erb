@@ -1,4 +1,8 @@
 <%= render "shared/header" %>
-<div class="">フォーム作成</div>
-<%= link_to "開始フォーム作成", new_startform_path, target: :_blank, rel: "noopener noreferrer" %>
-<%= link_to "振り返りフォーム作成", "#", target: :_blank, rel: "noopener noreferrer" %>
+<div class="page-wrapper feedback">
+  <div class="pagetitle">フォーム作成</div>
+  <div class="feedback-links">
+    <%= link_to "開始フォーム作成", new_startform_path, class:"btn feedback-link"%><br>
+    <%= link_to "振り返りフォーム作成", new_feedbackform_path, class:"btn feedback-link" %>
+  </div>
+</div>

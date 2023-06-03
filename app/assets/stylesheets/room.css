@@ -2,7 +2,7 @@
   height: 70vh;
   width: 70%;
   margin: 0 15%;
-  text-align: center;
+  /* text-align: center; */
 }
 
 .pagetitle{
@@ -46,25 +46,18 @@
   width: 100%;
   height: 500px;
   margin-bottom: 40px;
+  text-align: center;
 }
 
-
+/* ルール */
 .rule{
-  height: 250px;
+  height: 280px;
+  width: 100%;
   background-color: white;
   border-radius: 5px;
   border: 1px solid lightgray;
   box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, .1);
-  display: flex;
-  justify-content: space-between;
-}
-
-.form{
-  flex-direction: column;
-}
-
-.rule-form{
-  flex-direction: column;
+  text-align: center;
 }
 
 .rule-box{
@@ -82,26 +75,51 @@
   padding: 5px 10px;
 }
 
-.match-up{
-  display: flex;
-  align-items: center;
-}
 .edit{
   display: flex;
   flex-direction: column;
 }
+
+.form-group{
+  margin-top: 5px;
+}
+
+.select-rule{
+  width: 300px;
+}
+
+
+.rule-form{
+  text-align: center;
+  display: flex;
+}
+
+.form-control{
+  width: 150px;
+}
+
+.rule-submit{
+  margin-top: 10px;
+  padding: 5px;
+  height: 40px;
+}
+
 /* チャットエリア */
 .chat-box{
   height: 240px;
+  margin-bottom: 40px
 }
 
 .messages-area{
+  padding: ;
   height: 200px;
   border-radius: 5px;
   border: 1px solid lightgray;
   box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, .1);
   overflow: scroll;
+  background-color: white;
 }
+
 .message{
   display: flex;
   width: 100%;
@@ -125,6 +143,7 @@
 .form{
   display: flex;
   align-items: center;
+  flex-direction: column;
   height: 40px;
   width: 100%;
 }
@@ -142,7 +161,8 @@
 }
 
 .delete{
-
+  width: 100%;
+  text-align: center;
 }
 
 /* 画面暗転 */

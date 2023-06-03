@@ -4,14 +4,17 @@
 }
 
 .feedback-link{
+  width: 200px;
   text-decoration: none;
   margin: 20px;
 }
 
-.feedbacks{
-  background-color: white;
+.feedback{
+  text-align: center;
+}
 
 .feedbacks{
+  background-color: white;
   width: 80vw;
   margin: 30px 10% 0;
   display: flex;
@@ -61,4 +64,4 @@
 
 .create-complete{
   text-align: center;
-
+}
