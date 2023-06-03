@@ -35,6 +35,7 @@ header{
 }
 
 .nav{
+  background-color: white;
   display: flex;
   list-style: none;
   justify-content: space-around;
