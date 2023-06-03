@@ -1,3 +1,11 @@
+.background{
+  opacity: 0.2;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
 header{
   height: 150px;
   width: 80vw;
