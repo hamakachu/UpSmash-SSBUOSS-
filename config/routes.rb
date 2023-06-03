@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
+  resources :feedbackforms
   root to: "startforms#toppage"
   resources :startforms do
     member do
