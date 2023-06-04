@@ -1,16 +1,3 @@
-.page-wrapper{
-  height: 70vh;
-  width: 70%;
-  margin: 0 15%;
-}
-
-.pagetitle{
-  margin: 30px 0;
-  font-size: 40px;
-  font-weight: 600;
-  text-align: center;
-}
-
 .rooms_wrapper{
   width: 100%;
 }
@@ -21,11 +8,7 @@
 
 /* ルーム */
 .room_box{
-  background-color: white;
   height: 120px;
-  border: 1px solid lightgray;
-  border-radius: 5px;
-  box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, .1);
   margin:20px 0;
   padding: 5px 15px;
 }
@@ -52,10 +35,6 @@
 .rule{
   height: 280px;
   width: 100%;
-  background-color: white;
-  border-radius: 5px;
-  border: 1px solid lightgray;
-  box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, .1);
   text-align: center;
 }
 
@@ -120,11 +99,7 @@
 
 .messages-area{
   height: 200px;
-  border-radius: 5px;
-  border: 1px solid lightgray;
-  box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, .1);
   overflow: scroll;
-  background-color: white;
 }
 
 .message{

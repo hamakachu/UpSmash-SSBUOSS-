@@ -10,7 +10,7 @@
 
   <div class="room_contents">
     <%# ルール %>
-    <div class="rule">
+    <div class="box rule">
       <%# ルールが保存されていれば表示 %>
       <% if @room.rule_selected? %>
         <div class="decided-rule">
@@ -80,7 +80,7 @@
     
     <%# チャット %>
     <div class="chat-box">
-      <div class="messages-area" id="messages-area">
+      <div class="box messages-area" id="messages-area">
         <% @messages.each do |message|%>
           <div class="message">
             <div class="message-user">
@@ -93,7 +93,7 @@
         <% end %>
       </div>
       <%= form_with model: [@room, @message], url: room_messages_path(@room), id:"chat-input", class:'chat-form', local: true do |f| %>
-        <%= f.text_field :content, id:"content", class:"form-input", placeholder:'type a message' %>  
+        <%= f.text_field :content, id:"content", class:"box form-input", placeholder:'メッセージを入力してください' %>  
         <%= f.submit '送信',id:"chat-submit", class:'btn form-submit' %>
       <% end %>
     </div>

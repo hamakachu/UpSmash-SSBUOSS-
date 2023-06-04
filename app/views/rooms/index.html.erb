@@ -14,7 +14,7 @@
     
     <%# ルーム一覧 %>
     <% @rooms.each do |room| %>
-      <div class="room_box">
+      <div class="box room_box">
         <%= link_to(room_path(room.id),class:"room_link") do %>
           <%= room.room_name %><br>
           <%= User.find(room.host_user_id).nickname %>

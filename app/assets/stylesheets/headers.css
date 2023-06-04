@@ -35,16 +35,12 @@ header{
 }
 
 .nav{
-  background-color: white;
   display: flex;
   list-style: none;
   justify-content: space-around;
   align-items: center;
   height: 40px;
   width: auto;
-  border: 1px solid lightgray;
-  border-radius: 5px;
-  box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .1);
 }
 
 .nav-link{
