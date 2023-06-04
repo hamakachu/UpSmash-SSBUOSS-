@@ -2,12 +2,11 @@ class MessagesController < ApplicationController
   
   def create
     @room = Room.find(params[:room_id])
-    @message = @room.messages.new(message_params)
+    @message = @room.messages.create(message_params)
     if @message.save
-      redirect_to room_path(@room)
+      render json:{ message: @message }
     else
-      @messages = @room.messages.includes(:user)
-      render "rooms/show"
+      render json: { errors: @message.errors.full_messages }, status: :unprocessable_entity
     end
   end
 

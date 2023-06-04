@@ -1,4 +1,7 @@
 <%= render "shared/header" %>
+<div style="display:none;" id="room-id" data-room-id="<%= @room.id %>"></div>
+<div style="display:none;" id="user-nickname" data-nickname="<%= current_user.nickname %>"></div>
+
 
 <div class="page-wrapper">
   <div class="pagetitle">
@@ -77,7 +80,7 @@
     
     <%# チャット %>
     <div class="chat-box">
-      <div class="messages-area">
+      <div class="messages-area" id="messages-area">
         <% @messages.each do |message|%>
           <div class="message">
             <div class="message-user">
@@ -89,9 +92,9 @@
           </div>
         <% end %>
       </div>
-      <%= form_with model: [@room, @message], url: room_messages_path(@room), class:'chat-form', local: true do |f| %>
-        <%= f.text_field :content, class:"form-input", placeholder:'type a message' %>  
-        <%= f.submit '送信', class: 'btn form-submit' %>
+      <%= form_with model: [@room, @message], url: room_messages_path(@room), id:"chat-input", class:'chat-form', local: true do |f| %>
+        <%= f.text_field :content, id:"content", class:"form-input", placeholder:'type a message' %>  
+        <%= f.submit '送信',id:"chat-submit", class:'btn form-submit' %>
       <% end %>
     </div>
     <%# チャットここまで %>
