@@ -52,7 +52,7 @@ https://docs.google.com/spreadsheets/d/1LDHzZklzbuXHgqpPyn01FlZK_8XMps6PhkcIZJPe
 
 ## データベース設計
 ---
-
+[![Image from Gyazo](https://i.gyazo.com/8762712205287e358e70d097d6322934.png)](https://gyazo.com/8762712205287e358e70d097d6322934)
 
 ## 画面遷移
 ---
