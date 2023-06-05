@@ -1,4 +1,7 @@
-<h3>ルール編集</h3>
+<div class="page-wrapper">
+  <div class="pagetitle">
+  ルール編集
+  </div>
   <div class="rule-form">
     <%= form_with model: [@room, @rule], url: room_rule_path(@room, rule_id: @room.rule.id), class: 'form edit', id: 'rule-form', local: true do |f| %>
       <div class="form-group">
@@ -28,3 +31,4 @@
       <%= f.submit 'ルールを保存', class:'btn btn-primary' %>
     <% end %>
   </div>
+</div>

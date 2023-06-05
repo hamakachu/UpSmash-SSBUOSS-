@@ -1,0 +1,47 @@
+<%= render "shared/header" %>
+
+<div class="page-wrapper">
+  <div class="pagetitle">
+    <%= @user.nickname %>さんのユーザーページ
+  </div>
+  <div class="box users user-info">
+    <div class="boxtop">
+      <div>ユーザー情報</div>
+      <% if @user.id == current_user.id %>
+        <%= link_to "編集する", edit_user_path, class:"edit-user" %>
+      <% end%>
+    </div>
+    <div class="user-contents">
+      <div class="user-content">
+        ユーザー名：<%= @user.nickname %>
+      </div>
+      <div class="user-content">
+        <% if @user.twitter_id != "" %>
+        Twitter ID：<%=link_to @user.twitter_id, "https://twitter.com/#{@user.twitter_id}", class:"nickname", target: :_blank, rel: "noopener noreferrer" %>
+        <% else %>
+        Twitter ID：未設定
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="box users introduce">
+    <div class="boxtop">
+      ひとこと
+    </div>
+    <div class="user-contents">
+      <%= @user.introduce %>
+    </div>
+  </div>
+  <div class="box users posted">
+    <div class="boxtop">
+      投稿済み記事
+    </div>
+  </div>
+  <% if @user.id == current_user.id %>
+  <div class="box users posted">
+    <div class="boxtop">
+      投稿済みフォーム
+    </div>
+  </div>
+  <% end %>
+</div>

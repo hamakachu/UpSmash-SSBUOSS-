@@ -1,0 +1,43 @@
+.box{
+  border: 1px solid lightgray;
+  background-color: white;
+  box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .1);
+  border-radius: 5px;
+}
+
+.page-wrapper{
+  height: 70vh;
+  width: 70%;
+  margin: 0 15%;
+}
+
+.pagetitle{
+  margin: 30px 0;
+  font-size: 40px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.boxtop{
+  padding: 5px;
+  background-color: #00bfff;
+  color: white;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.btn{
+  padding: 10px ;
+  font-weight: 600;
+  border-radius: 10px;
+  border: 1px solid #00bfff;
+  background-color: white;
+  color: #00bfff;
+  text-decoration: none;
+}
+
+.form-group{
+  margin: 10px 0;
+}

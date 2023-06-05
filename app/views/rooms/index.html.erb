@@ -14,16 +14,20 @@
     
     <%# ルーム一覧 %>
     <% @rooms.each do |room| %>
-      <div class="room_box">
+      <div class="box room_box">
         <%= link_to(room_path(room.id),class:"room_link") do %>
-          <%= room.room_name %><br>
-          <%= User.find(room.host_user_id).nickname %>
-        <% end %>
-        <% if user_signed_in? && user_already_joined?%>
-          <div class="enter">
-            <%= form_with model: @room, url: join_room_path(room.id), local: true do |r| %>
-              <input name="user_id[user_ids][]" type="hidden" value=<%= current_user.id %>>
-              <%= r.submit "参加する", class:"btn room_submit" %>
+          <div class="boxtop room-upper">
+            <%= room.room_name %>
+          </div>
+          <div class="room-bottom">
+            ホスト：<%= User.find(room.host_user_id).nickname %>
+            <% if user_signed_in? && user_already_joined?%>
+              <div class="enter">
+                <%= form_with model: @room, url: join_room_path(room.id), local: true do |r| %>
+                <input name="user_id[user_ids][]" type="hidden" value=<%= current_user.id %>>
+                <%= r.submit "参加する", class:"btn room-join" %>
+                <% end %>
+              </div>
             <% end %>
           </div>
         <% end %>
