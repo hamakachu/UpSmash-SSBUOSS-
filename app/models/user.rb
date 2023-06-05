@@ -9,4 +9,5 @@ class User < ApplicationRecord
   has_many :messages
   has_many :startforms
   has_many :feedbackforms
+  has_many :articles
 end

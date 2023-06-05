@@ -92,19 +92,21 @@
           </div>
         <% end %>
       </div>
-      <%= form_with model: [@room, @message], url: room_messages_path(@room), id:"chat-input", class:'chat-form', local: true do |f| %>
-        <%= f.text_field :content, id:"content", class:"box form-input", placeholder:'メッセージを入力してください' %>  
-        <%= f.submit '送信',id:"chat-submit", class:'btn form-submit' %>
-      <% end %>
+      <div class="chat-form">
+        <%= form_with model: [@room, @message], url: room_messages_path(@room), id:"chat-input", local: true do |f| %>
+          <%= f.text_field :content, id:"content", class:"box form-input", placeholder:'メッセージを入力してください' %>  
+          <%= f.submit '送信',id:"chat-submit", class:'btn form-submit' %>
+        <% end %>
+      </div>
     </div>
     <%# チャットここまで %>
   </div>
+  <% if current_user.id == @room.host_user_id %>
+    <div class="delete">
+      <%= link_to "ルームを解散する", room_path(@room), method: :delete, class:'btn' %>
+    </div>
+  <% end %>
 </div>
-<% if current_user.id == @room.host_user_id %>
-  <div class="delete">
-    <%= link_to "ルームを解散する", room_path(@room), method: :delete, class:'btn' %>
-  </div>
-<% end %>
 
 <div id="form_popup" class="popup">
   <div class="overlay"></div>

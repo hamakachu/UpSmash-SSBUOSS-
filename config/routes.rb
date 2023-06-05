@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :users
+  resources :articles
   resources :feedbackforms
   root to: "startforms#toppage"
   resources :startforms do
@@ -8,7 +9,6 @@ Rails.application.routes.draw do
       get :toppage
     end
   end
-
   resources :rooms do
     resources :messages
     resources :rules
