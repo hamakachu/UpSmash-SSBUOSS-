@@ -2,6 +2,36 @@
   margin-top: 30px;
 }
 
+.article-bottom{
+  padding: 10px;
+}
+
+.article-poster{
+  text-decoration: none;
+  color: blue;
+}
+
 .new-article{
   padding: 10px;
+}
+
+.article-input{
+  width: 80%;
+  font-size: 16px;
+}
+
+.main-input{
+  height: 500px;
+}
+
+.article-content{
+  overflow: hidden;
+}
+
+.article-markdown{
+  padding: 10px 20px;
+}
+
+.save-article{
+  margin-bottom: 15px;
 }

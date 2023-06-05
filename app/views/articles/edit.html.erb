@@ -2,10 +2,10 @@
 
 <div class="page-wrapper">
   <div class="pagetitle">
-    記事作成ページ
+    記事編集ページ
   </div>
   <div class="new-article box">
-    <%= form_with model: @article, url: articles_path, local: true do |f| %>
+    <%= form_with model: @article, url: article_path(@article.id), method: :patch, local: true do |f| %>
       <div class="">
         <%= f.label :title, "タイトル"%><br>
         <%= f.text_field :title, class:"article-input" %>
@@ -17,7 +17,8 @@
         </div>
         <%= f.text_area :text, class:"article-input main-input" %>
       </div>
-      <%= f.submit '保存', class:'btn btn-primary' %>
+      <%= f.submit '保存', class:'btn save-article' %>
     <% end %>
+    <%= link_to "記事を削除する", article_path(@article), method: :delete, class:"btn" %>
   </div>
 </div>

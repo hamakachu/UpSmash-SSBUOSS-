@@ -11,10 +11,8 @@ class StartformsController < ApplicationController
   end
 
   def create
-    @startform = Startform.new(startform_params)
-    if @startform.save
-      redirect_to startforms_path
-    else
+    @startform = Startform.create(startform_params)
+    if !@startform.save
       render :new
     end
   end

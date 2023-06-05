@@ -8,7 +8,7 @@
     <div class="boxtop">
       <div>ユーザー情報</div>
       <% if @user.id == current_user.id %>
-        <%= link_to "編集する", edit_user_path, class:"edit-user" %>
+        <%= link_to "編集する", edit_user_path, class:"edit-btn" %>
       <% end%>
     </div>
     <div class="user-contents">
@@ -36,11 +36,30 @@
     <div class="boxtop">
       投稿済み記事
     </div>
+    <div class="user-articles">
+      <% @articles.each do |article| %>
+        <li><%= link_to article.title, article_path(article.id), class:"user-article" %></li>
+      <% end %>
+    </div>
   </div>
   <% if @user.id == current_user.id %>
   <div class="box users posted">
     <div class="boxtop">
       投稿済みフォーム
+    </div>
+    <div class="user-contents">
+      <div class="user-forms">
+        <div>＜活動開始フォーム＞</div>
+        <% @startforms.each do |start| %>
+          <li><%= link_to "活動開始フォーム：#{start.created_at.strftime('%Y年%m月%d日')}", startform_path(start), class:"user-form" %></li>
+        <% end %>
+      </div>
+      <div class="user-forms">
+        <div>＜振り返りフォーム＞</div>
+        <% @feedbackforms.each do |feedback| %>
+          <li><%= link_to "振り返りフォーム：#{feedback.created_at.strftime('%Y年%m月%d日')}", feedbackform_path(feedback), class:"user-form" %></li>
+        <% end %>
+      </div>
     </div>
   </div>
   <% end %>
