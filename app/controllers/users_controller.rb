@@ -2,6 +2,9 @@ class UsersController < ApplicationController
   before_action :find_user
   
   def show
+    @articles = Article.where(user_id: @user.id).order(created_at: :desc)
+    @startforms = Startform.where(user_id: @user.id).order(created_at: :desc)
+    @feedbackforms = Feedbackform.where(user_id: @user.id).order(created_at: :desc)
   end 
 
   def edit

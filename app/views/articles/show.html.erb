@@ -1,0 +1,19 @@
+<%= render "shared/header" %>
+
+<div class="page-wrapper">
+  <div class="pagetitle">
+    <%= @article.title %>
+  </div>
+  <div class="box article-content">
+    <div class="boxtop">
+      <div>
+        投稿者：<%= User.find(@article.user_id).nickname %>
+      </div>
+      <% if @article.user_id == current_user.id %>
+        <%= link_to "編集/削除", edit_article_path, class:"edit-btn" %>
+      <% end%>
+    </div>
+    <div class="article-markdown">
+      <%= markdown_to_html(@article.text) %>
+    </div>
+</div>
