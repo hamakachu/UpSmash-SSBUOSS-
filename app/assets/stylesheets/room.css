@@ -10,7 +10,7 @@
 .room_box{
   height: 120px;
   margin:20px 0;
-  padding: 5px 15px;
+  overflow: hidden;
 }
 
 .room_link{
@@ -19,9 +19,20 @@
   color: black;
 }
 
-.room_submit{
-  height: 35px;
+.room-upper{
+  height: 30%;
+}
+
+.room-bottom{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70%;
   padding: 0 10px;
+}
+
+.room-join{
+  font-size: 16px;
 }
 
 .room_contents{
@@ -65,10 +76,6 @@
 .edit{
   display: flex;
   flex-direction: column;
-}
-
-.form-group{
-  margin-top: 5px;
 }
 
 .select-rule{

@@ -1,0 +1,28 @@
+<%= render "shared/header" %>
+
+<div class="page-wrapper">
+  <div class="pagetitle">
+    ユーザー情報編集
+  </div>
+  <div class="box">
+    <div class="boxtop">
+      編集
+    </div>
+      <%= form_with model: @user, url: user_path(@user.id), class:"edit-form", local: true do |f| %>
+        <div class="form-group">
+          <%= f.label :nickname, "ユーザー名" %><br>
+          <%= f.text_field :nickname, class:'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :twitter_id, "Twitter ID" %>(@以降を入力してください)<br>
+          @<%= f.text_field :twitter_id, class:'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :introduce, "ひとこと" %><br>
+          <%= f.text_area :introduce, class:'edit-introduce form-control' %>
+        </div>
+
+        <%= f.submit '変更を保存', class:'btn btn-primary' %>
+      <% end %>
+  </div>
+</div>

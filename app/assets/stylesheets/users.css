@@ -1,13 +1,47 @@
 .users{
-  padding: 10px;
   margin-bottom: 20px;
   border-radius: 5px;
+  overflow: hidden;
+  min-height: 100px;
 }
 
 .user-info{
   height: 100px;
 }
 
+.edit-user{
+  font-size: 10px;
+  padding: 3px;
+  font-weight: 300;
+  border-radius: 10px;
+  border: 1px solid #00bfff;
+  background-color: white;
+  color: #00bfff;
+  text-decoration: none;
+}
+
 .introduce{
   height: auto;
+}
+
+.user-contents{
+  padding: 5px;
+}
+
+.user-content{
+  border-bottom: 1px solid lightgray;
+}
+
+.edit-form{
+  height: auto;
+  padding: 10px;
+}
+
+.edit-introduce{
+  height: 100px;
+  width: 400px;
+}
+
+.nickname{
+  text-decoration: none;
 }

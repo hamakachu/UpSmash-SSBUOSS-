@@ -17,3 +17,27 @@
   font-weight: 600;
   text-align: center;
 }
+
+.boxtop{
+  padding: 5px;
+  background-color: #00bfff;
+  color: white;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.btn{
+  padding: 10px ;
+  font-weight: 600;
+  border-radius: 10px;
+  border: 1px solid #00bfff;
+  background-color: white;
+  color: #00bfff;
+  text-decoration: none;
+}
+
+.form-group{
+  margin: 10px 0;
+}
