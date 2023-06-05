@@ -1,0 +1,10 @@
+<%= render "shared/header" %>
+
+<div class="page-wrapper">
+  <div class="pagetitle">
+    <%= @article.title %>
+  </div>
+  <div class="article-content">
+    <%= markdown_to_html(@article.text) %>
+  </div>
+</div>

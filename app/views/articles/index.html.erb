@@ -5,4 +5,14 @@
     記事
   </div>
   <%= link_to "記事を作成する", new_article_path, class:"btn" %>
+  <div class="articles">
+    <% @articles.each do |article| %>
+      <div class="box article">
+        <%= link_to article.title, article_path(article.id), class:"boxtop" %>
+        <div>
+          <%= link_to User.find(article.user_id).nickname, user_path(article.user_id) %>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
