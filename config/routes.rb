@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :users
-  resources :articles
+  resources :articles do
+    resources :comments
+  end
   resources :feedbackforms
   root to: "startforms#toppage"
   resources :startforms do

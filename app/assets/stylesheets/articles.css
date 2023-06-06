@@ -6,10 +6,6 @@
   padding: 10px;
 }
 
-.article-poster{
-  text-decoration: none;
-  color: blue;
-}
 
 .new-article{
   padding: 10px;
@@ -34,4 +30,38 @@
 
 .save-article{
   margin-bottom: 15px;
+}
+
+/* コメント */
+.comments-box{
+  margin-top: 30px;
+}
+
+.comment-form{
+  display: flex;
+  align-items: center;
+}
+
+.form-submit{
+  height: 35px;
+}
+
+.comments-index{
+  padding: 10px;
+}
+
+.comment{
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin-bottom: 10px;
+}
+
+.comment-upper{
+  display: flex;
+  justify-content: space-between;
+}
+
+.commenter{
+  border-bottom: 1px solid lightgrey;
 }

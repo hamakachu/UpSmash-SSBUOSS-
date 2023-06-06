@@ -56,6 +56,13 @@
 .examples{
   font-size: 12px;
 }
+
 .example{
   margin-bottom: 10px;
 }
+
+.poster{
+  text-decoration: none;
+  color: blue;
+}
+
