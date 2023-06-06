@@ -21,6 +21,8 @@ class ArticlesController < ApplicationController
   end
 
   def show
+    @comments = Comment.where(article_id: params[:id])
+    @comment = Comment.new
   end
 
   def edit

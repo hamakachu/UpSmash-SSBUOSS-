@@ -64,3 +64,5 @@ group :production do
 end
 
 gem 'redcarpet' 
+
+gem 'kaminari'
