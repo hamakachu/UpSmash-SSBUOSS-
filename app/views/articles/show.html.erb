@@ -7,9 +7,9 @@
   <div class="box article-content">
     <div class="boxtop">
       <div>
-        投稿者：<%= User.find(@article.user_id).nickname %>
+        投稿者：<%= link_to User.find(@article.user_id).nickname, user_path(@article.user_id), class:"poster" %>
       </div>
-      <% if @article.user_id == current_user.id %>
+      <% if user_signed_in? && @article.user_id == current_user.id %>
         <%= link_to "編集/削除", edit_article_path(@article.id), class:"edit-btn" %>
       <% end%>
     </div>
@@ -33,7 +33,8 @@
           <div class="comment">
             <div class="comment-upper">
               <%= link_to User.find(comment.user_id).nickname, user_path(comment.user_id), class:"poster commenter" %>
-              <% if comment.user_id == current_user.id %>
+
+              <% if user_signed_in? && comment.user_id == current_user.id %>
                 <%= link_to "削除する", article_comment_path(@article, comment.id), class:"edit-btn" %>
               <% end %>
             </div>
