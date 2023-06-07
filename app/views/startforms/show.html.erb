@@ -1,0 +1,29 @@
+<div class="feedbacks">
+  <div class="pagetitle">
+    活動開始フォーム
+  </div>
+  <div class="feedback-content">
+    <div class="feedback-info">
+      1. 前回までのプレイを振り返って、対戦前にたてたアクションプランを実行できていますか？
+    </div>
+    <% if @startform.executed == 1 %>
+      <div>A.できている</div>
+    <% else %>
+      <div>A.できていない</div>
+    <% end %>
+  </div>
+
+  <div class="feedback-content">
+    <div class="feedback-info">
+      2. 上記の質問で、なぜそう思ったのか書き出しましょう。
+    </div>
+    <%= @startform.reason %>
+  </div>
+
+  <div class="feedback-content">
+    <div class="feedback-info">
+      3. 本日の目標を設定しましょう。また、それを実現するためのアクションプランを列挙しましょう。
+    </div>
+    <%= @startform.action_plan %>
+  </div>
+</div>

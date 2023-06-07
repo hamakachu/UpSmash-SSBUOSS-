@@ -49,11 +49,11 @@ https://docs.google.com/spreadsheets/d/1LDHzZklzbuXHgqpPyn01FlZK_8XMps6PhkcIZJPe
 
 ## データベース設計
 ---
-[![Image from Gyazo](https://i.gyazo.com/8762712205287e358e70d097d6322934.png)](https://gyazo.com/8762712205287e358e70d097d6322934)
+[![Image from Gyazo](https://i.gyazo.com/d3529aa8a0c40b06ada117550c01e58b.png)](https://gyazo.com/d3529aa8a0c40b06ada117550c01e58b)
 
 ## 画面遷移
 ---
-
+[![Image from Gyazo](https://i.gyazo.com/acb87fb6a98d9c2b19985a09baa34b4b.png)](https://gyazo.com/acb87fb6a98d9c2b19985a09baa34b4b)
 
 ## 開発環境
 ---

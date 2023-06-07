@@ -66,3 +66,5 @@ end
 gem 'redcarpet' 
 
 gem 'kaminari'
+
+gem "gretel"

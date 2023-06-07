@@ -17,6 +17,10 @@ class StartformsController < ApplicationController
     end
   end
 
+  def show
+    @startform = Startform.find(params[:id])
+  end
+
   private
   def startform_params
     params.require(:startform).permit(:executed, :reason, :action_plan).merge(user_id: current_user.id)

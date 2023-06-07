@@ -1,0 +1,37 @@
+<div class="feedbacks">
+  <div class="pagetitle">
+    対戦振り返りフォーム
+  </div>
+    <div class="feedback-content">
+        <div class="feedback-info">
+          1. 対戦の内容はいかがでしたか？10段階で評価しましょう。
+        </div>
+        <div class="evaluation">
+          <%= @feedbackform.evaluation %>
+        </div>
+      </div>
+
+      <div class="feedback-content">
+        <div class="feedback-info">
+          2. 対戦を終えて、良かった点を書き出しましょう。
+        </div>
+        <%= @feedbackform.good %>
+      </div>
+
+      <div class="feedback-content">
+        <div class="feedback-info">
+          3. 対戦を終えて、うまくいかなかった点を書き出しましょう。
+        </div>
+        <%= @feedbackform.bad %>
+      </div>
+
+      <div class="feedback-content">
+        <div class="feedback-info">
+          4. 上記を踏まえて、次の試合のアクションプランを書き出しましょう。
+        </div>
+        <%= @feedbackform.next_action %>
+      </div>
+
+      <div>
+    </div>
+</div>

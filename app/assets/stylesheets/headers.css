@@ -42,3 +42,11 @@ header{
   height: 100px;
   width: auto;
 }
+
+/* フッター */
+footer{
+  border-top: 1px solid lightgray;
+  height: 40px;
+  font-size: 8px;
+  text-align: center;
+}

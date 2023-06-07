@@ -12,6 +12,10 @@ class FeedbackformsController < ApplicationController
     end
   end
 
+  def show
+    @feedbackform = Feedbackform.find(params[:id])
+  end
+
   private
 
   def feedbackform_params
