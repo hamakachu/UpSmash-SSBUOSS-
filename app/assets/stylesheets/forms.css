@@ -59,3 +59,15 @@
 .create-complete{
   text-align: center;
 }
+
+/* スマホ */
+@media (max-width: 599px) {
+  .feedbacks{
+    font-size: 12px;
+    width: 95vw;
+    margin: 20px 0;
+  }
+  .evaluation{
+    font-size: 6px;
+  }
+}

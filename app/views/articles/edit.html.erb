@@ -12,12 +12,12 @@
       <div class="">
         <%= f.label :text, "本文"%><br>
         <div class="examples">
-          (マークダウン記法で記述することができます。 ※マークダウン記法の詳細：)
+          (マークダウン記法で記述することができます。 ※マークダウン記法の詳細：<%= link_to "https://tech-camp.in/note/technology/84353/", "https://tech-camp.in/note/technology/84353/" %>)
         </div>
         <%= f.text_area :text, class:"article-input main-input" %>
       </div>
       <%= f.submit '保存', class:'btn save-article' %>
     <% end %>
-    <%= link_to "記事を削除する", article_path(@article), method: :delete, class:"btn" %>
+    <%= link_to "記事を削除する", article_path(@article), method: :delete, class:"btn", data: { confirm: "記事を削除しますか？" } %>
   </div>
 </div>

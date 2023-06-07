@@ -1,4 +1,4 @@
-.toppage-contents{
+.contents{
   padding: 10px;
   display: flex;
   flex-direction: column;
@@ -13,4 +13,8 @@
   margin-bottom: 5px;
   border-bottom: 1px solid lightgray;
   font-size: 16px;
+}
+
+.link{
+  border-bottom: 1px solid lightgray;
 }

@@ -102,7 +102,7 @@
   </div>
   <% if current_user.id == @room.host_user_id %>
     <div class="delete">
-      <%= link_to "ルームを解散する", room_path(@room), method: :delete, class:'btn' %>
+      <%= link_to "ルームを解散する", room_path(@room), method: :delete, class:'btn', data: { confirm: "解散しますか？" } %>
     </div>
   <% end %>
 </div>
