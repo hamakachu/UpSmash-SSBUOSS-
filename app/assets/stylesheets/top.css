@@ -1,0 +1,16 @@
+.toppage-contents{
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.content{
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+.function{
+  margin-bottom: 5px;
+  border-bottom: 1px solid lightgray;
+  font-size: 16px;
+}

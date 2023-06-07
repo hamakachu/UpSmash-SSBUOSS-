@@ -3,6 +3,8 @@
     対戦振り返りフォーム
   </div>
   <%= form_with(model: @feedbackform, url: feedbackforms_path, method: :post, class:"feedbacks-area", data: { remote: false }) do |f| %>
+    <%= render 'shared/error_messages', model: f.object %>
+    
     <div class="feedback-content">
       <div class="feedback-info">
         1. 対戦の内容はいかがでしたか？10段階で評価しましょう。

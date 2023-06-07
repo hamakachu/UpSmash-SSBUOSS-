@@ -4,6 +4,7 @@
   </div>
   <div class="new-article box">
     <%= form_with model: @article, url: articles_path, local: true do |f| %>
+      <%= render 'shared/error_messages', model: f.object %>
       <div class="">
         <%= f.label :title, "タイトル"%><br>
         <%= f.text_field :title, class:"article-input" %>

@@ -3,6 +3,8 @@
     活動開始フォーム
   </div>
   <%= form_with(model: @startform, url: startforms_path, method: :post, class:"feedbacks-area", data: { remote: false }) do |f| %>
+    <%= render 'shared/error_messages', model: f.object %>
+    
     <div class="feedback-content">
       <div class="feedback-info">
         1. 前回までのプレイを振り返って、対戦前にたてたアクションプランを実行できていますか？

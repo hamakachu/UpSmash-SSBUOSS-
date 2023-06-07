@@ -1,7 +1,5 @@
 class StartformsController < ApplicationController
-  def toppage
-    
-  end
+  
   
   def index
   end

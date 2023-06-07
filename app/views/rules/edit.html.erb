@@ -4,6 +4,7 @@
   </div>
   <div class="rule-form">
     <%= form_with model: [@room, @rule], url: room_rule_path(@room, rule_id: @room.rule.id), class: 'form edit', id: 'rule-form', local: true do |f| %>
+      <%= render 'shared/error_messages', model: f.object %>
       <div class="form-group">
         <%= f.label :room_code, "部屋ID" %>
         <%= f.text_field :room_code, class: 'form-control' %>

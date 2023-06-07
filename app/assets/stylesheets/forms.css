@@ -1,6 +1,7 @@
 .feedback-links{
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .feedback-link{
@@ -11,6 +12,7 @@
 
 .feedback{
   text-align: center;
+
 }
 
 .feedbacks{

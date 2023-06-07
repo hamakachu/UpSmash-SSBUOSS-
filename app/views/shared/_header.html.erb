@@ -19,6 +19,6 @@
     <% if user_signed_in?%>
       <li><%= link_to "マイページ", user_path(current_user.id), class:"nav-link" %></li>
     <% end %>
-    <li><a href="#" class="nav-link">その他</a></li>
+    <li><%= link_to "その他", other_path, class:"nav-link" %></li>
   </ul>
 </header>

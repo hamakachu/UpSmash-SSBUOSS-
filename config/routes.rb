@@ -1,16 +1,17 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :users
+
+  root to: "pages#toppage"
+
   resources :articles do
     resources :comments
   end
+
   resources :feedbackforms
-  root to: "startforms#toppage"
-  resources :startforms do
-    member do
-      get :toppage
-    end
-  end
+
+  resources :startforms
+
   resources :rooms do
     resources :messages
     resources :rules
@@ -18,4 +19,8 @@ Rails.application.routes.draw do
       post :join
     end
   end
+
+get '/toppage', to: 'pages#toppage'
+get '/other', to: 'pages#other'
+
 end
