@@ -48,3 +48,23 @@ footer{
   text-align: center;
 }
 
+/* スマホ */
+@media (max-width: 599px) {
+  .background{
+    display: none;
+  }
+  header{
+    width: 100%;
+    margin: 0;
+    height: 120px;
+  }
+  .logo{
+    height: 40px;
+  }
+  .nav{
+    font-size: 12px;
+    justify-content: space-evenly;
+    padding-right: 30px;
+  }
+  
+}
