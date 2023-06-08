@@ -255,7 +255,7 @@ DEPENDENCIES
   active_hash
   bootsnap (>= 1.4.2)
   byebug
-  capybara (>= 2.15)
+  capybara (>= 3.0)
   devise
   jbuilder (~> 2.7)
   kaminari
