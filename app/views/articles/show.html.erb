@@ -33,7 +33,7 @@
               <%= link_to User.find(comment.user_id).nickname, user_path(comment.user_id), class:"poster commenter" %>
 
               <% if user_signed_in? && comment.user_id == current_user.id %>
-                <%= link_to "削除する", article_comment_path(@article, comment.id), method: :delete, class:"edit-btn", data: { confirm: "コメントを削除しますか？" } %>
+                <%= link_to "削除する", article_comment_path(@article, comment.id), method: :delete, class:"edit-btn" %>
               <% end %>
             </div>
             <%= comment.text %>

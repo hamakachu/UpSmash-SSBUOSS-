@@ -71,28 +71,3 @@
 .close{
   text-align: center;
 }
-
-/* スマホ */
-@media (max-width: 599px) {
-  .page-wrapper{
-    width: 100vw;
-    margin: 0;
-    font-size: 12px;
-  }
-  .box{
-    margin-right: 15px;
-  }
-  .pagetitle{
-    font-size: 24px;
-  }
-  .btn{
-    font-size: 12px;
-  }
-  .boxtop{
-    font-size: 16px;
-    padding:3px 5px;
-  }
-  .examples{
-    font-size: 8px;
-  }
-}
