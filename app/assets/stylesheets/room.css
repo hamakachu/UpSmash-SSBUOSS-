@@ -38,6 +38,9 @@
   text-align: center;
 }
 
+.enter{
+  display: flex;
+}
 /* ルール */
 .rule{
   height: 280px;

@@ -26,7 +26,8 @@ class RoomsController < ApplicationController
     if @room_user.save
       redirect_to room_path
     else
-      # 参加不可時の処理を記述
+      flash[:notice] = "すでに定員に達しています"
+      redirect_to rooms_path
     end
   end
 
