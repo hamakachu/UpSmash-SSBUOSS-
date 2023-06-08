@@ -21,7 +21,7 @@
 
 .room-bottom{
   display: flex;
-  justify-content: space-between;
+  justify-content: left;
   align-items: center;
   height: 70%;
   padding: 0 10px;
@@ -119,6 +119,8 @@
 .message-user{
   font-size: 12px;
   margin:0 5px;
+  display: flex;
+  flex-direction: column;
 }
 
 .message-content{

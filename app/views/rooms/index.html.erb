@@ -19,7 +19,13 @@
             <%= room.room_name %>
           </div>
           <div class="room-bottom">
-            ホスト：<%= User.find(room.host_user_id).nickname %>
+            ホスト：
+            <% if User.find(room.host_user_id).image.attached? %>
+              <%= image_tag User.find(room.host_user_id).image.variant(resize: '60x60'), class:"user-img" %>
+            <% else %>
+              <%= image_tag Smash_Ball.svg.png%>
+            <% end %>
+            <%= User.find(room.host_user_id).nickname %>
             <% if user_signed_in? && user_already_joined?%>
               <div class="enter">
                 <%= form_with model: @room, url: join_room_path(room.id), local: true do |r| %>
