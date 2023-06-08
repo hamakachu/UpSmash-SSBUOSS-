@@ -1,3 +1,11 @@
+.sign{
+  text-align: center;
+}
+
+.field{
+  margin-bottom: 5px;
+}
+
 .users{
   margin-bottom: 20px;
   border-radius: 5px;

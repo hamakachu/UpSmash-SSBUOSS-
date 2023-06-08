@@ -2,6 +2,7 @@ require 'redcarpet'
 
 class ArticlesController < ApplicationController
   before_action :find_article, except: [:index, :new, :create]
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     @articles = Article.all.order("created_at DESC")
