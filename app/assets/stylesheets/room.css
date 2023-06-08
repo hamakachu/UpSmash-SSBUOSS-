@@ -123,13 +123,19 @@
   flex-direction: column;
 }
 
+.chat-user-img{
+  height: 30px;
+  width: auto;
+}
+
 .message-content{
+  height: 30px;
   padding:5px 20px;
   background-color: white;
   color: grey;
   border: 1px solid lightgray;
   border-radius: 15px;
-  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 }
 
 .form{

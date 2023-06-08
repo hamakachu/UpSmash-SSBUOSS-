@@ -1,7 +1,16 @@
 <div style="display:none;" id="room-id" data-room-id="<%= @room.id %>"></div>
 <div style="display:none;" id="user-nickname" data-nickname="<%= current_user.nickname %>"></div>
-<div style="display:none;" id="user-image" data-image="<%= current_user.image %>"></div>
-
+<div style="display:none;" id="user-image" data-image="<%= image_tag current_user.image %>"><%=image_tag current_user.image %></div>
+<%# 画像のURLを取得する %>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var userImageDiv = document.getElementById('user-image');
+    var imageTag = userImageDiv.innerHTML;
+    var imageURL = imageTag.match(/src="([^"]+)"/)[1];
+    userImageDiv.dataset.image = imageURL;
+  });
+</script>
+<%# /画像のURLを取得する %>
 <div class="page-wrapper">
   <div class="pagetitle">
     対戦ルーム
@@ -85,6 +94,7 @@
         <% @messages.each do |message|%>
           <div class="message">
             <div class="message-user">
+              <%= image_tag User.find(message.user_id).image, class:"chat-user-img" %>
               <%= link_to User.find(message.user_id).nickname, user_path(message.user_id) %>
             </div>
             <div class="message-content">

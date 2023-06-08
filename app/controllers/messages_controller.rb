@@ -1,13 +1,12 @@
 class MessagesController < ApplicationController
-  
+
   def create
     @room = Room.find(params[:room_id])
-    @message = @room.messages.create(message_params)
+    @message = @room.messages.new(message_params)
     if @message.save
-      render json:{ message: @message }
-    else
-      render json: { errors: @message.errors.full_messages }, status: :unprocessable_entity
+      MessageChannel.broadcast_to @room, { message: @message, user: @message.user }
     end
+
   end
 
   private
