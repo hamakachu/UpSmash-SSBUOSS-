@@ -1,8 +1,12 @@
 <div class="page-wrapper feedback">
   <div class="pagetitle">フォーム作成</div>
-  <div class="feedback-links">
-    <%= link_to "開始フォーム作成", new_startform_path, class:"btn feedback-link"%><br>
-    <%= link_to "振り返りフォーム作成", new_feedbackform_path, class:"btn feedback-link" %>
-  </div>
+  <% if user_signed_in? %>
+    <div class="feedback-links">
+      <%= link_to "開始フォーム作成", new_startform_path, class:"btn feedback-link"%><br>
+      <%= link_to "振り返りフォーム作成", new_feedbackform_path, class:"btn feedback-link" %>
+    </div>
+  <% else %>
+    この機能を使用するには、ログインが必要です。
+  <% end %>
 </div>
 
