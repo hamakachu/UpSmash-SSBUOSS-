@@ -21,9 +21,9 @@
           <div class="room-bottom">
             ホスト：
             <% if User.find(room.host_user_id).image.attached? %>
-              <%= image_tag User.find(room.host_user_id).image.variant(resize: '60x60'), class:"user-img" %>
+              <%= image_tag User.find(room.host_user_id).image, class:"user-img" %>
             <% else %>
-              <%= image_tag Smash_Ball.svg.png%>
+              <%= image_tag Smash_Ball.svg.png, class:"user-img" %>
             <% end %>
             <%= User.find(room.host_user_id).nickname %>
             <% if user_signed_in? && user_already_joined?%>
