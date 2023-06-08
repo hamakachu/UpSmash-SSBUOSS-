@@ -11,4 +11,5 @@ class User < ApplicationRecord
   has_many :feedbackforms
   has_many :articles
   has_many :comments
+  has_one_attached :image
 end
