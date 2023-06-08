@@ -18,6 +18,6 @@
       </div>
       <%= f.submit '保存', class:'btn save-article' %>
     <% end %>
-    <%= link_to "記事を削除する", article_path(@article), method: :delete, class:"btn" %>
+    <%= link_to "記事を削除する", article_path(@article), method: :delete, class:"btn", data: { confirm: "記事を削除しますか？" } %>
   </div>
 </div>
