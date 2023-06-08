@@ -49,3 +49,10 @@
   text-decoration: none;
 }
 
+/* スマホ */
+@media (max-width: 599px) {
+  .users{
+    margin-bottom: 10px;
+  }
+  
+}
