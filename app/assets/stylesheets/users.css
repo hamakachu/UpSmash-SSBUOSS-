@@ -39,6 +39,10 @@
   width: 400px;
 }
 
+.preview-image{
+  height: 80px;
+}
+
 .nickname{
   text-decoration: none;
   color: blue;

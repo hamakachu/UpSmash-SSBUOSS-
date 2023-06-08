@@ -60,6 +60,7 @@ https://docs.google.com/spreadsheets/d/1LDHzZklzbuXHgqpPyn01FlZK_8XMps6PhkcIZJPe
 * 実績解除機能：フォーム送信数や記事投稿数、対戦数などでバッジのようなものが解放されていく機能
 * 非同期通信でのルール変更
 * 記事作成機能の拡張(Wordなどのように直感的に文書作成ができる機能)
+* アプリ内検索機能
 
 ## データベース設計
 ---
