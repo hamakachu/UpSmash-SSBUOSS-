@@ -31,7 +31,7 @@
             <% if @room.rule.voice_chat_id == 2 %>
               <div class="rule-content">通話可</div>
               <div class="rule-content">Discordフレンドコード: <%= @room.rule.discord %></div>
-            <% elsif @room.rule.voice_chat_id == 3 %>
+            <% else %>
               <div class="rule-content">通話不可</div>
             <% end %>
             <%= link_to "ルール変更", edit_room_rule_path(@room, rule_id: @room.rule.id), id:"edit-rule-btn", class:'btn edit-rule rule-content' %>
