@@ -11,14 +11,14 @@ UpSmash!
 https://upsmash.onrender.com/
 ---
 ## テスト用アカウント
-> Basic認証ID: admin
-> Basic認証PASS: 2222
-> テストユーザー1
->> email: test1@com
->> pass: test1111
-> テストユーザー2
->> email: test2@com
->> pass: test2222
+> Basic認証ID: admin 
+> Basic認証PASS: 2222 
+> テストユーザー1 
+>> email: test1@com 
+>> pass: test1111 
+> テストユーザー2 
+>> email: test2@com 
+>> pass: test2222 
 ---
 ## 利用方法
 ### 対戦機能
@@ -33,14 +33,15 @@ https://upsmash.onrender.com/
 * ログイン中のユーザーは記事にコメントをつけることができる。
 ---
 ## アプリケーション作成の背景
-"スマブラ"を競技としてプレイするコミュニティに所属する中で、効果的な実力向上手段がわからず闇雲に試合をこなすだけのプレイヤーが多いとわかった。
-同じようなモチベーションのプレーヤーが集まり、対戦を行い、言語化フォームに沿ってアウトプットを行うことで、競技プレイヤーの実力を向上させコミュニティを活発化したいと考えた。
+"スマブラ"を競技としてプレイするコミュニティに所属する中で、効果的な実力向上手段がわからず闇雲に試合をこなすだけのプレイヤーが多いとわかった。 
+同じようなモチベーションのプレーヤーが集まり、対戦を行い、言語化フォームに沿ってアウトプットを行うことで、競技プレイヤーの実力を向上させコミュニティを活発化したいと考えた。 
 ---
 ## 洗い出した要件
-要件定義書スプレッドシート
+* 要件定義書スプレッドシート
 https://docs.google.com/spreadsheets/d/1LDHzZklzbuXHgqpPyn01FlZK_8XMps6PhkcIZJPeAHI/edit#gid=982722306
 ---
 ## 実装した機能についての画像やGIFおよびその説明
+
 
 ---
 ## 実装予定の機能
@@ -49,7 +50,6 @@ https://docs.google.com/spreadsheets/d/1LDHzZklzbuXHgqpPyn01FlZK_8XMps6PhkcIZJPe
 * ルール変更がページ遷移えずに行え、かつ即時に反映される機能
 * 記事作成機能の拡張(Wordなどのように直感的に文書作成ができる機能)
 * アプリ内検索機能
-
 ---
 ## データベース設計
 [![Image from Gyazo](https://i.gyazo.com/d3529aa8a0c40b06ada117550c01e58b.png)](https://gyazo.com/d3529aa8a0c40b06ada117550c01e58b)
@@ -64,11 +64,10 @@ https://docs.google.com/spreadsheets/d/1LDHzZklzbuXHgqpPyn01FlZK_8XMps6PhkcIZJPe
 * タスク管理
 ---
 ## ローカルでの動作方法
-% git clone https://github.com/hamakachu/UpSmash-SSBUOSS-
-% cd UpSmash-SSBUOSS-
-% bundle install
-% yarn install
-
+% git clone https://github.com/hamakachu/UpSmash-SSBUOSS- 
+% cd UpSmash-SSBUOSS- 
+% bundle install 
+% yarn install 
 ---
 ## 工夫した点
 対戦相手が現れるのを待つ仕様を実現するため、対戦ルーム作成時に保存される情報を絞り、参加者がボタンを押すことで参加者のデータが保存されるようにした。
