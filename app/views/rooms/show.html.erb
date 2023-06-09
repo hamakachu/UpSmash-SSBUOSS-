@@ -96,7 +96,9 @@
         <% @messages.each do |message|%>
           <div class="message">
             <div class="message-user">
-              <%= image_tag User.find(message.user_id).image, class:"chat-user-img" %>
+              <% if User.find(messge.user_id).image.attached? %>
+              <%= image_tag User.find(messge.user_id).image, class:"chat-user-img" %>
+              <% end %>
               <%= link_to User.find(message.user_id).nickname, user_path(message.user_id) %>
             </div>
             <div class="message-content">
