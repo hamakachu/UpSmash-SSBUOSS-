@@ -13,8 +13,6 @@
       <div style="display:flex;">
         <% if @user.image.attached? %>
           <%= image_tag @user.image.variant(resize: '60x60'), class:"user-img" %>
-        <% else %>
-          <%= image_tag "Smash_Ball.svg.png", class:"user-img" %>
         <% end %>
         <div>
           <div class="user-content">

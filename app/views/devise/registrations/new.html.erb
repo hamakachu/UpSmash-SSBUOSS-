@@ -36,6 +36,11 @@
         <span class="indispensable">必須</span>
         <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
       </div>
+      <div class="field">
+        <%= f.label :image, "プロフィール画像" %><br>
+        <%= f.file_field :image, accept: 'image/*', class: 'form-control' %>
+        <div id="previews" class="user-img"></div>
+      </div>
 
       <div class="actions">
         <%= f.submit "Sign up" %>

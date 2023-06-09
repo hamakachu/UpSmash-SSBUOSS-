@@ -14,22 +14,63 @@ if(location.pathname.match(/\/rooms\/\d/)){
       // Called when the subscription has been terminated by the server
     },
 
+    // received(data) {
+    //   const image = document.getElementById("user-image").dataset.image
+    //   const html = `
+    //       <div class="message">
+    //         <div class="message-user">
+    //           <img src="${image}" class="chat-user-img" >
+    //           <a href="/users/${data.user.id}">${data.user.nickname}</a>
+    //         </div>
+    //         <div class="message-content">
+    //           ${data.message.content}
+    //         </div>
+    //       </div>`;
+    //   const messagesArea = document.getElementById("messages-area")
+    //   messagesArea.insertAdjacentHTML("beforeend", html);
+    //   const chatInput = document.getElementById("chat-input")
+    //   chatInput.reset();
+    //   const submitButton = chatInput.querySelector('input[type="submit"]');
+    //   submitButton.disabled = false;
+    // }
+
     received(data) {
-      const image = document.getElementById("user-image").dataset.image
-      const html = `
-          <div class="message">
-            <div class="message-user">
-              <img src="${image}" class="chat-user-img" >
-              <a href="/users/${data.user.id}">${data.user.nickname}</a>
-            </div>
-            <div class="message-content">
-              ${data.message.content}
-            </div>
-          </div>`;
-      const messagesArea = document.getElementById("messages-area")
-      messagesArea.insertAdjacentHTML("beforeend", html);
-      const chatInput = document.getElementById("chat-input")
+      const user = data.user;
+      const message = data.message;
+      
+      const messagesArea = document.getElementById("messages-area");
+      
+      const messageContainer = document.createElement("div");
+      messageContainer.classList.add("message");
+      
+      const messageUser = document.createElement("div");
+      messageUser.classList.add("message-user");
+      
+      if (user.image) {
+        const userImage = document.createElement("img");
+        userImage.src = user.image;
+        userImage.classList.add("chat-user-img");
+        messageUser.appendChild(userImage);
+      }
+      
+      const userLink = document.createElement("a");
+      userLink.href = "/users/" + user.id;
+      userLink.textContent = user.nickname;
+      messageUser.appendChild(userLink);
+      
+      messageContainer.appendChild(messageUser);
+      
+      const messageContent = document.createElement("div");
+      messageContent.classList.add("message-content");
+      messageContent.textContent = message.content;
+      
+      messageContainer.appendChild(messageContent);
+      
+      messagesArea.appendChild(messageContainer);
+      
+      const chatInput = document.getElementById("chat-input");
       chatInput.reset();
+      
       const submitButton = chatInput.querySelector('input[type="submit"]');
       submitButton.disabled = false;
     }
