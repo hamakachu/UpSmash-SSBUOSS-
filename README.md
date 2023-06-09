@@ -11,14 +11,16 @@ UpSmash!
 https://upsmash.onrender.com/
 ---
 ## テスト用アカウント
-> Basic認証ID: admin 
-> Basic認証PASS: 2222 
-> テストユーザー1 
->> email: test1@com 
->> pass: test1111 
-> テストユーザー2 
->> email: test2@com 
->> pass: test2222 
+* Basic認証ID: admin 
+* Basic認証PASS: 2222
+
+* テストユーザー1 
+  * email: test1@com 
+  * pass: test1111
+
+* テストユーザー2 
+  * email: test2@com 
+  * pass: test2222 
 ---
 ## 利用方法
 ### 対戦機能
@@ -64,10 +66,10 @@ https://docs.google.com/spreadsheets/d/1LDHzZklzbuXHgqpPyn01FlZK_8XMps6PhkcIZJPe
 * タスク管理
 ---
 ## ローカルでの動作方法
-% git clone https://github.com/hamakachu/UpSmash-SSBUOSS- 
-% cd UpSmash-SSBUOSS- 
-% bundle install 
-% yarn install 
+* % git clone https://github.com/hamakachu/UpSmash-SSBUOSS-
+* % cd UpSmash-SSBUOSS-
+* % bundle install
+* % yarn install
 ---
 ## 工夫した点
 対戦相手が現れるのを待つ仕様を実現するため、対戦ルーム作成時に保存される情報を絞り、参加者がボタンを押すことで参加者のデータが保存されるようにした。
