@@ -14,26 +14,6 @@ if(location.pathname.match(/\/rooms\/\d/)){
       // Called when the subscription has been terminated by the server
     },
 
-    // received(data) {
-    //   const image = document.getElementById("user-image").dataset.image
-    //   const html = `
-    //       <div class="message">
-    //         <div class="message-user">
-    //           <img src="${image}" class="chat-user-img" >
-    //           <a href="/users/${data.user.id}">${data.user.nickname}</a>
-    //         </div>
-    //         <div class="message-content">
-    //           ${data.message.content}
-    //         </div>
-    //       </div>`;
-    //   const messagesArea = document.getElementById("messages-area")
-    //   messagesArea.insertAdjacentHTML("beforeend", html);
-    //   const chatInput = document.getElementById("chat-input")
-    //   chatInput.reset();
-    //   const submitButton = chatInput.querySelector('input[type="submit"]');
-    //   submitButton.disabled = false;
-    // }
-
     received(data) {
       const user = data.user;
       const message = data.message;

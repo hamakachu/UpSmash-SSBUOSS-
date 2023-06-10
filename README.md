@@ -45,10 +45,6 @@ https://upsmash.onrender.com/
 * 要件定義書スプレッドシート
 https://docs.google.com/spreadsheets/d/1LDHzZklzbuXHgqpPyn01FlZK_8XMps6PhkcIZJPeAHI/edit#gid=982722306
 ---
-## 実装した機能についての画像やGIFおよびその説明
-
-
----
 ## 実装予定の機能
 * テストコードでの挙動確認
 * 実績解除機能：フォーム送信数や記事投稿数、対戦数などでバッジのようなものが解放されていく機能
