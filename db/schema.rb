@@ -94,7 +94,7 @@ ActiveRecord::Schema.define(version: 2023_06_08_073818) do
   create_table "rules", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.integer "format_id", null: false
     t.integer "match_count_id", null: false
-    t.string "voice_chat_id", null: false
+    t.integer "voice_chat_id", null: false
     t.string "discord"
     t.string "room_code", null: false
     t.integer "room_pass", null: false
@@ -129,7 +129,6 @@ ActiveRecord::Schema.define(version: 2023_06_08_073818) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "articles", "users"
   add_foreign_key "comments", "articles"
   add_foreign_key "comments", "users"
@@ -142,4 +141,3 @@ ActiveRecord::Schema.define(version: 2023_06_08_073818) do
   add_foreign_key "rules", "rooms"
   add_foreign_key "startforms", "users"
 end
-
