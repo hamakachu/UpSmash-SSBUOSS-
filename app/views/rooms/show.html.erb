@@ -39,7 +39,7 @@
             <div class="rule-content"><%= Format.find(@room.rule.format_id).name %></div>
             <div class="rule-content"><%= MatchCount.find(@room.rule.match_count_id).name %></div>
             <%# 通話の可否で表示変更 %>
-            <% if @room.rule.voice_chat_id == VoiceChat.find(2).id %>
+            <% if @room.rule.voice_chat.to_i == 2 %>
               <div class="rule-content">通話可</div>
               <div class="rule-content">Discordフレンドコード: <%= @room.rule.discord %></div>
             <% else %>

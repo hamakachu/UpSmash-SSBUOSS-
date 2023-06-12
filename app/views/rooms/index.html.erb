@@ -31,11 +31,6 @@
                 <input name="user_id[user_ids][]" type="hidden" value=<%= current_user.id %>>
                 <%= r.submit "参加する", class:"btn room-join" %>
                 <% end %>
-                <% if flash[:notice] %>
-                  <div class="alert alert-success">
-                    <%= flash[:notice] %>
-                  </div>
-                <% end %>
               </div>
             <% end %>
           </div>
