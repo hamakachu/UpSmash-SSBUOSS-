@@ -94,7 +94,7 @@ ActiveRecord::Schema.define(version: 2023_06_08_073818) do
   create_table "rules", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.integer "format_id", null: false
     t.integer "match_count_id", null: false
-    t.integer "voice_chat_id", null: false
+    t.string "voice_chat_id", null: false
     t.string "discord"
     t.string "room_code", null: false
     t.integer "room_pass", null: false
