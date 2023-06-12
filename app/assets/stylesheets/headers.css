@@ -39,7 +39,6 @@ header{
 }
 
 
-
 /* フッター */
 footer{
   border-top: 1px solid lightgray;
@@ -62,8 +61,8 @@ footer{
     height: 40px;
   }
   .nav{
-    font-size: 12px;
-    justify-content: space-evenly;
+    font-size: 10px;
+    justify-content: space-between;
     padding-right: 30px;
   }
   
