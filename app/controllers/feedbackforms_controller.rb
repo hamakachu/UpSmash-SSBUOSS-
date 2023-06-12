@@ -19,7 +19,7 @@ class FeedbackformsController < ApplicationController
   private
 
   def feedbackform_params
-    params.require(:feedbackform).permit(:evaluation, :good, :bad, :next_action).merge(user_id: current_user.id)
+    params.require(:feedbackform).permit(:evaluation, :good, :bad, :next_action, :my_fighter_id, :opponent_fighter_id).merge(user_id: current_user.id)
   end
 
 end
