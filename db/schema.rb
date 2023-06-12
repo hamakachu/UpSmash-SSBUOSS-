@@ -142,3 +142,4 @@ ActiveRecord::Schema.define(version: 2023_06_08_073818) do
   add_foreign_key "rules", "rooms"
   add_foreign_key "startforms", "users"
 end
+
