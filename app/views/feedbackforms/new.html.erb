@@ -4,10 +4,20 @@
   </div>
   <%= form_with(model: @feedbackform, url: feedbackforms_path, method: :post, class:"feedbacks-area", data: { remote: false }) do |f| %>
     <%= render 'shared/error_messages', model: f.object %>
+
+    <div class="feedback-content">
+      <div class="feedback-info">
+        1. 自分のファイターと相手のファイターを記録しましょう。
+      </div>
+      <div>
+        自分：<%= f.collection_select(:my_fighter_id, Fighter.all, :id, :name, {}) %><br>
+        相手：<%= f.collection_select(:opponent_fighter_id, Fighter.all, :id, :name, {}) %><br>
+      </div>
+    </div>
     
     <div class="feedback-content">
       <div class="feedback-info">
-        1. 対戦の内容はいかがでしたか？10段階で評価しましょう。
+        2. 対戦の内容はいかがでしたか？10段階で評価しましょう。
       </div>
       <div class="evaluation">
         <%= f.label :evaluation, "1" %>
@@ -35,21 +45,21 @@
 
     <div class="feedback-content">
       <div class="feedback-info">
-        2. 対戦を終えて、良かった点を書き出しましょう。
+        3. 対戦を終えて、良かった点を書き出しましょう。
       </div>
       <%= f.text_area :good, class: "feedback-form good_bad" %>
     </div>
 
     <div class="feedback-content">
       <div class="feedback-info">
-        3. 対戦を終えて、うまくいかなかった点を書き出しましょう。
+        4. 対戦を終えて、うまくいかなかった点を書き出しましょう。
       </div>
       <%= f.text_area :bad, class: "feedback-form good_bad" %>
     </div>
 
     <div class="feedback-content">
       <div class="feedback-info">
-        4. 上記を踏まえて、次の試合のアクションプランを書き出しましょう。
+        5. 上記を踏まえて、次の試合のアクションプランを書き出しましょう。
       </div>
       <%= f.text_area :next_action, class: "feedback-form" %>
     </div>

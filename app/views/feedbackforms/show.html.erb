@@ -3,6 +3,17 @@
     対戦振り返りフォーム
   </div>
     <div class="feedback-content">
+      <div class="feedback-info">
+        1. 自分のファイターと相手のファイターを記録しましょう。
+      </div>
+      <div>
+        自分：<%= Fighter.find(@feedbackform.my_fighter_id).name %><br>
+        相手：<%= Fighter.find(@feedbackform.opponent_fighter_id).name %><br>
+      </div>
+    </div>
+
+
+    <div class="feedback-content">
         <div class="feedback-info">
           1. 対戦の内容はいかがでしたか？10段階で評価しましょう。
         </div>
