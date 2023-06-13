@@ -25,20 +25,20 @@
     <div class="joinner">
       <% user_ids = @room.room_users.pluck(:user_id) %>
         <div class="joinner-box">
+          <% if User.find(user_ids[0]).image.attached? %>
+            <%= image_tag User.find(user_ids[0]).image, class:"joinner-img" %>
+          <% end %>
           <div class="joinner-name">
             <%= link_to User.find(user_ids[0]).nickname, user_path(User.find(user_ids[0])) %>
           </div>
-          <% if User.find(user_ids[0]).image.attached? %>
-            <%= image_tag User.find(user_ids[0]).image, class:"chat-user-img" %>
-          <% end %>
         </div>
         <div>
+          <% if User.find(user_ids[1]).image.attached? %>
+            <%= image_tag User.find(user_ids[1]).image, class:"joinner-img" %>
+          <% end %>
           <div class="joinner-name">
             <%= link_to User.find(user_ids[1]).nickname, user_path(User.find(user_ids[1])) %>
           </div>
-          <% if User.find(user_ids[1]).image.attached? %>
-            <%= image_tag User.find(user_ids[1]).image, class:"chat-user-img" %>
-          <% end %>
         </div>
     </div>    
   </div>
