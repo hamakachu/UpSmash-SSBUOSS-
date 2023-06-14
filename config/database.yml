@@ -6,7 +6,7 @@ development:
   <<: *default
   adapter: mysql2
   username: root
-  password:
+  password: saten3103
   host: localhost
   database: UpSmash_SSBUOSS_development
 
@@ -14,7 +14,7 @@ test:
   <<: *default
   adapter: mysql2
   username: root
-  password:
+  password: saten3103
   host: localhost
   database: UpSmash_SSBUOSS_test
 
