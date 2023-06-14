@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_06_12_121356) do
+ActiveRecord::Schema.define(version: 2023_06_13_160332) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name", null: false
@@ -63,6 +63,15 @@ ActiveRecord::Schema.define(version: 2023_06_12_121356) do
     t.integer "my_fighter_id"
     t.integer "opponent_fighter_id"
     t.index ["user_id"], name: "index_feedbackforms_on_user_id"
+  end
+
+  create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "article_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["article_id"], name: "index_likes_on_article_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
   create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
@@ -135,6 +144,8 @@ ActiveRecord::Schema.define(version: 2023_06_12_121356) do
   add_foreign_key "comments", "articles"
   add_foreign_key "comments", "users"
   add_foreign_key "feedbackforms", "users"
+  add_foreign_key "likes", "articles"
+  add_foreign_key "likes", "users"
   add_foreign_key "messages", "rooms"
   add_foreign_key "messages", "users"
   add_foreign_key "room_users", "rooms"
