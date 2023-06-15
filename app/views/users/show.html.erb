@@ -65,8 +65,18 @@
         <% @feedbackforms.limit(10).each do |feedback| %>
           <li><%= link_to "振り返りフォーム：#{feedback.created_at.strftime('%Y年%m月%d日')}", feedbackform_path(feedback), class:"user-form" %></li>
         <% end %>
-        
       </div>
+    </div>
+  </div>
+  <div class="box users likes">
+    <div class="boxtop">
+      お気に入り記事
+    </div>
+    <div class="user-contents">
+      <% @likes.limit(10).each do |like| %>
+        <li><%= link_to like.title, article_path(like.id), class:"user-article" %></li>
+      <% end %>
+      <%= paginate @likes, param_name: 'likes_page' %>
     </div>
   </div>
   <% end %>

@@ -18,7 +18,7 @@
       <% if user_signed_in? && @article.liked_by?(current_user)%>
         <%=link_to "お気に入り済", article_like_path(@article.id),  method: :delete, class: "tweet_likes" %>
       <% else %>
-        <%=link_to "お気に入り", article_likes_path(@article.id), method: :post, class: "tweet_likes" %>
+        <%=link_to "お気に入り登録", article_likes_path(@article.id), method: :post, class: "tweet_likes" %>
       <% end %>
     </div>
   </div>

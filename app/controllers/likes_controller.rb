@@ -10,4 +10,5 @@ class LikesController < ApplicationController
     like.destroy
     redirect_to article_path
   end
+  
 end
