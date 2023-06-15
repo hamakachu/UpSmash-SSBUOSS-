@@ -5,6 +5,7 @@ class UsersController < ApplicationController
     @articles = Article.where(user_id: @user.id).order(created_at: :desc).page(params[:articles_page]).per(10)
     @startforms = Startform.where(user_id: @user.id).order(created_at: :desc).page(params[:startforms_page]).per(10)
     @feedbackforms = Feedbackform.where(user_id: @user.id).order(created_at: :desc).page(params[:feedbackforms_page]).per(10)
+    @likes = Article.joins(:likes).where(likes: { user_id: @user.id }).order(created_at: :desc).page(params[:likes_page]).per(10)
   end 
 
   def edit
