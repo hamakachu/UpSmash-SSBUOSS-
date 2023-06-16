@@ -16,7 +16,12 @@ if(location.pathname.match(/\/rooms\/\d/)){
 
     received(data) {
       const user = data.user;
+
       const message = data.message;
+      const userImageDiv = document.getElementById('user-image');
+      const imageTag = userImageDiv.innerHTML;
+      const imageURL = imageTag.match(/src="([^"]+)"/)[1];
+      userImageDiv.dataset.image = imageURL;
       
       const messagesArea = document.getElementById("messages-area");
       
@@ -26,9 +31,9 @@ if(location.pathname.match(/\/rooms\/\d/)){
       const messageUser = document.createElement("div");
       messageUser.classList.add("message-user");
       
-      if (user.image) {
+      if (imageURL != "") {
         const userImage = document.createElement("img");
-        userImage.src = user.image;
+        userImage.src = imageURL;
         userImage.classList.add("chat-user-img");
         messageUser.appendChild(userImage);
       }

@@ -3,16 +3,7 @@
 <%if current_user.image.attached? %>
 <div style="display:none;" id="user-image" data-image="<%= image_tag current_user.image %>"><%=image_tag current_user.image %></div>
 <% end %>
-<%# 画像のURLを取得する %>
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const userImageDiv = document.getElementById('user-image');
-    const imageTag = userImageDiv.innerHTML;
-    const imageURL = imageTag.match(/src="([^"]+)"/)[1];
-    userImageDiv.dataset.image = imageURL;
-  });
-</script>
-<%# /画像のURLを取得する %>
+
 <div class="page-wrapper">
   <div class="pagetitle">
     対戦ルーム
