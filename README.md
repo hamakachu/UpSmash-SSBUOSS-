@@ -53,7 +53,7 @@ https://docs.google.com/spreadsheets/d/1LDHzZklzbuXHgqpPyn01FlZK_8XMps6PhkcIZJPe
 * アプリ内検索機能
 ---
 ## データベース設計
-[![Image from Gyazo](https://i.gyazo.com/d3529aa8a0c40b06ada117550c01e58b.png)](https://gyazo.com/d3529aa8a0c40b06ada117550c01e58b)
+[![Image from Gyazo](https://i.gyazo.com/e28b282fb2c5e94d74b5ef4d06b15690.png)](https://gyazo.com/e28b282fb2c5e94d74b5ef4d06b15690)
 
 ## 画面遷移
 [![Image from Gyazo](https://i.gyazo.com/acb87fb6a98d9c2b19985a09baa34b4b.png)](https://gyazo.com/acb87fb6a98d9c2b19985a09baa34b4b)
