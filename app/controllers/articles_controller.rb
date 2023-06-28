@@ -27,10 +27,13 @@ class ArticlesController < ApplicationController
   end
 
   def edit
+    if current_user.id != @article.user_id
+      redirect_to root_path
+    end
   end
 
   def update
-    if @article.update(article_params)
+    if @article.update(article_update)
       redirect_to @article
     else
       render :edit
@@ -46,6 +49,10 @@ class ArticlesController < ApplicationController
   private
   def article_params
     params.require(:article).permit(:title, :text).merge(user_id: current_user.id)
+  end
+
+  def article_update
+    params.require(:article).permit(:title, :text)
   end
 
   def find_article

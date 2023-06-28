@@ -29,6 +29,7 @@
               <% unless RoomUser.where(room_id: room.id).count == 2 %>
                 <div class="enter">
                   <%= form_with model: @room, url: join_room_path(room.id), local: true do |r| %>
+                    <%= render 'shared/error_messages', model: r.object %>
                     <input name="user_id[user_ids][]" type="hidden" value=<%= current_user.id %>>
                     <%= r.submit "参加する", class:"btn room-join" %>
                   <% end %>
