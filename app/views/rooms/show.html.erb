@@ -1,146 +1,25 @@
 <div style="display:none;" id="room-id" data-room-id="<%= @room.id %>"></div>
 <div style="display:none;" id="user-nickname" data-nickname="<%= current_user.nickname %>"></div>
-<%if current_user.image.attached? %>
-<div style="display:none;" id="user-image" data-image="<%= image_tag current_user.image %>"><%=image_tag current_user.image %></div>
+<% if current_user.image.attached? %>
+  <div style="display:none;" id="user-image" data-image="<%= image_tag current_user.image %>"><%= image_tag current_user.image %></div>
 <% end %>
 
 <div class="page-wrapper">
   <div class="pagetitle">
     対戦ルーム
   </div>
-  <%# ホスト＆ゲスト %>
-  <div class="box machup">
-    <div class="boxtop">
-      ルーム参加者
-    </div>
-    <div class="joinner">
-      <% user_ids = @room.room_users.pluck(:user_id) %>
-        <div class="joinner-box">
-          <% if User.find(user_ids[0]).image.attached? %>
-            <%= image_tag User.find(user_ids[0]).image, class:"joinner-img" %>
-          <% end %>
-          <div class="joinner-name">
-            <%= link_to User.find(user_ids[0]).nickname, user_path(User.find(user_ids[0])) %>
-          </div>
-        </div>
-        <div>
-          <% if User.find(user_ids[1]).image.attached? %>
-            <%= image_tag User.find(user_ids[1]).image, class:"joinner-img" %>
-          <% end %>
-          <div class="joinner-name">
-            <%= link_to User.find(user_ids[1]).nickname, user_path(User.find(user_ids[1])) %>
-          </div>
-        </div>
-    </div>    
-  </div>
-  <div class="room_contents">
-    <%# ルール %>
-    <div class="box rule">
-      <div class="boxtop">
-        ルール
-      </div>
-      <%# ルールが保存されていれば表示 %>
-      <% if @room.rule_selected? %>
-        <div class="decided-rule">
-          <%# 選択可能ステージ %>
-          <div class="pickable-stage">
-            <% if @room.rule.format_id == 2 %>
-              <%= image_tag "スマメイト.png", alt: "Image 1", class:"rule-img" %>
-            <% elsif @room.rule.format_id == 3 %>
-              <%= image_tag "篝火.png", alt: "Image 2", class:"rule-img" %>
-            <% end %>
-          </div>
-          <%# 情報 %>
-          <div class="rule-box">
-            <div class="rule-content">部屋ID：<%= @room.rule.room_code %></div>
-            <div class="rule-content">PASS：<%= @room.rule.room_pass %></div>
-            <div class="rule-content"><%= Format.find(@room.rule.format_id).name %></div>
-            <div class="rule-content"><%= MatchCount.find(@room.rule.match_count_id).name %></div>
-            <%# 通話の可否で表示変更 %>
-            <% if @room.rule.voice_chat_id == 2 %>
-              <div class="rule-content">通話可</div>
-              <div class="rule-content">Discordフレンドコード: <%= @room.rule.discord %></div>
-            <% else %>
-              <div class="rule-content">通話不可</div>
-            <% end %>
-            <% if user_signed_in? && host_user? %>
-            <%= link_to "ルール変更", edit_room_rule_path(@room, rule_id: @room.rule.id), id:"edit-rule-btn", class:'btn edit-rule rule-content' %>
-            <% end %>
-          </div>
-        </div>
 
-      <%# ルール未選択なら表示 %>
-      <% else %>
-        <% if host_user? %>
-          <div class="select-rule">
-            <div class="rule-notice">
-              ルールを選択してください
-            </div>
-            <%= form_with model: [@room, @rule], url: room_rules_path(@room), id:'rule-form', local: true do |f| %>
-              <div class='rule-form'>
-                <div class="rule-labels">
-                  <%= f.label :room_code, "部屋ID", class:"rule-rabel" %><br>
-                  <%= f.label :room_pass, "部屋PASS", class:"rule-rabel" %><br>
-                  <%= f.label :format, "形式", class:"rule-rabel" %><br>
-                  <%= f.label :match_count, "試合数", class:"rule-rabel" %><br>
-                  <%= f.label :voice_chat, "通話の可否", class:"rule-rabel" %><br>
-                  <%= f.label :discord, "discord", class:"rule-rabel" %>
-                </div>
-                <div class="rule-input">
-                  <%= f.text_field :room_code, class: 'form-control' %><br>
-                  <%= f.text_field :room_pass, class: 'form-control' %><br>
-                  <%= f.collection_select(:format_id, Format.all, :id, :name, {}, {class:"form-control"}) %><br>
-                  <%= f.collection_select(:match_count_id, MatchCount.all, :id, :name, {}, {class:"form-control"}) %><br>
-                  <%= f.collection_select(:voice_chat_id, VoiceChat.all, :id, :name, {}, {class:"form-control"}) %><br>
-                  <%= f.text_field :discord, class: 'form-control' %><br>
-                </div>
-              </div>
-              <div>
-                <%= f.submit 'ルールを保存', class:'btn rule-submit' %>
-              </div>
-            <% end %>
-          </div>
-        <% else %>
-          ホストがルールを選択するまでお待ちください
-        <% end %>
-      <% end %>
-    </div>
-    <%# ルールここまで %>
+  <%= render 'room_participants', presenter: @presenter %>
+
+  <div class="room_contents">
+    <%= render 'room_rule', presenter: @presenter, room: @room, rule: @rule %>
     <br>
-    
-    <%# チャット %>
-    <div class="box chat-box">
-      <div class="boxtop">
-        チャット
-      </div>
-      <div class="messages-area" id="messages-area">
-        <% @messages.each do |message|%>
-          <div class="message">
-            <div class="message-user">
-              <% if User.find(message.user_id).image.attached? %>
-              <%= image_tag User.find(message.user_id).image, class:"chat-user-img" %>
-              <% end %>
-              <%= link_to User.find(message.user_id).nickname, user_path(message.user_id) %>
-            </div>
-            <div class="message-content">
-              <%= message.content%>
-            </div>
-          </div>
-        <% end %>
-      </div>
-    </div>
-    <div class="chat-form">
-        <%= form_with model: [@room, @message], url: room_messages_path(@room), id:"chat-input", local: true do |f| %>
-          <%= f.text_field :content, id:"content", class:"box form-input", placeholder:'メッセージを入力してください' %>  
-          <%= f.submit '送信',id:"chat-submit", class:'btn form-submit' %>
-        <% end %>
-      </div>
-    <%# チャットここまで %>
+    <%= render 'chat_section', presenter: @presenter, room: @room, message: @message %>
   </div>
 </div>
-<% if user_signed_in? && host_user? %>
-    <div class="delete">
-      <%= link_to "ルームを解散する", room_path(@room), method: :delete, class:'btn delete-room', data: { confirm: "解散しますか？" } %>
-    </div>
-  <% end %>
 
+<% if user_signed_in? && @presenter.can_delete_room? %>
+  <div class="delete">
+    <%= link_to "ルームを解散する", room_path(@room), method: :delete, class:'btn delete-room', data: { confirm: "解散しますか？" } %>
+  </div>
+<% end %>

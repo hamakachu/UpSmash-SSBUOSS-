@@ -1,0 +1,27 @@
+<%# チャット %>
+<div class="box chat-box">
+  <div class="boxtop">
+    チャット
+  </div>
+  <div class="messages-area" id="messages-area">
+    <% presenter.messages.each do |message| %>
+      <div class="message">
+        <div class="message-user">
+          <% if message.user.image.attached? %>
+            <%= image_tag message.user.image, class:"chat-user-img" %>
+          <% end %>
+          <%= link_to message.user.nickname, user_path(message.user) %>
+        </div>
+        <div class="message-content">
+          <%= message.content %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+<div class="chat-form">
+  <%= form_with model: [room, message], url: room_messages_path(room), id:"chat-input", local: true do |f| %>
+    <%= f.text_field :content, id:"content", class:"box form-input", placeholder:'メッセージを入力してください' %>
+    <%= f.submit '送信',id:"chat-submit", class:'btn form-submit' %>
+  <% end %>
+</div>
