@@ -1,0 +1,69 @@
+<%# ルール %>
+<div class="box rule">
+  <div class="boxtop">
+    ルール
+  </div>
+  <%# ルールが保存されていれば表示 %>
+  <% if presenter.rule_selected? %>
+    <div class="decided-rule">
+      <%# 選択可能ステージ %>
+      <div class="pickable-stage">
+        <% if presenter.format_image_path %>
+          <%= image_tag presenter.format_image_path, alt: "Format Image", class:"rule-img" %>
+        <% end %>
+      </div>
+      <%# 情報 %>
+      <div class="rule-box">
+        <div class="rule-content">部屋ID：<%= presenter.rule.room_code %></div>
+        <div class="rule-content">PASS：<%= presenter.rule.room_pass %></div>
+        <div class="rule-content"><%= presenter.format_name %></div>
+        <div class="rule-content"><%= presenter.match_count_name %></div>
+        <%# 通話の可否で表示変更 %>
+        <% if presenter.voice_chat_available? %>
+          <div class="rule-content">通話可</div>
+          <div class="rule-content">Discordフレンドコード: <%= presenter.rule.discord %></div>
+        <% else %>
+          <div class="rule-content">通話不可</div>
+        <% end %>
+        <% if user_signed_in? && presenter.current_user_is_host? %>
+          <%= link_to "ルール変更", edit_room_rule_path(room, rule_id: presenter.rule.id), id:"edit-rule-btn", class:'btn edit-rule rule-content' %>
+        <% end %>
+      </div>
+    </div>
+
+  <%# ルール未選択なら表示 %>
+  <% else %>
+    <% if presenter.current_user_is_host? %>
+      <div class="select-rule">
+        <div class="rule-notice">
+          ルールを選択してください
+        </div>
+        <%= form_with model: [room, rule], url: room_rules_path(room), id:'rule-form', local: true do |f| %>
+          <div class='rule-form'>
+            <div class="rule-labels">
+              <%= f.label :room_code, "部屋ID", class:"rule-rabel" %><br>
+              <%= f.label :room_pass, "部屋PASS", class:"rule-rabel" %><br>
+              <%= f.label :format, "形式", class:"rule-rabel" %><br>
+              <%= f.label :match_count, "試合数", class:"rule-rabel" %><br>
+              <%= f.label :voice_chat, "通話の可否", class:"rule-rabel" %><br>
+              <%= f.label :discord, "discord", class:"rule-rabel" %>
+            </div>
+            <div class="rule-input">
+              <%= f.text_field :room_code, class: 'form-control' %><br>
+              <%= f.text_field :room_pass, class: 'form-control' %><br>
+              <%= f.collection_select(:format_id, Format.all, :id, :name, {}, {class:"form-control"}) %><br>
+              <%= f.collection_select(:match_count_id, MatchCount.all, :id, :name, {}, {class:"form-control"}) %><br>
+              <%= f.collection_select(:voice_chat_id, VoiceChat.all, :id, :name, {}, {class:"form-control"}) %><br>
+              <%= f.text_field :discord, class: 'form-control' %><br>
+            </div>
+          </div>
+          <div>
+            <%= f.submit 'ルールを保存', class:'btn rule-submit' %>
+          </div>
+        <% end %>
+      </div>
+    <% else %>
+      ホストがルールを選択するまでお待ちください
+    <% end %>
+  <% end %>
+</div>

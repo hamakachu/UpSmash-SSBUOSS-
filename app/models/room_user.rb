@@ -2,7 +2,7 @@ class RoomUser < ApplicationRecord
   belongs_to :user
   belongs_to :room
 
-  validates :user_id, uniqueness: true
+  validates :user_id, uniqueness: { scope: :room_id, message: "は既にこのルームに参加しています" }
 
   validate :validate_capacity
 

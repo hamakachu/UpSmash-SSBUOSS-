@@ -11,30 +11,30 @@ class RoomsController < ApplicationController
   end
 
   def create
-    @room = Room.new(room_params)
-    if @room.save
-      redirect_to room_path(@room.id)
+    result = RoomMatchingService.create_room(room_params, current_user)
+    if result.success?
+      redirect_to room_path(result.room.id)
     else
+      flash.now[:alert] = result.error_message
+      @room = Room.new(room_params)
       render :new
     end
   end
 
   def join
-    @room_user = RoomUser.new
-    @room_user.room_id = params[:id]
-    @room_user.user_id = current_user.id
-    if @room_user.save
-      redirect_to room_path
+    result = RoomMatchingService.join_room(params[:id], current_user)
+    if result.success?
+      redirect_to room_path(result.room.id)
     else
-      flash[:notice] = "すでに定員に達しています"
+      flash[:alert] = result.error_message
       redirect_to rooms_path
     end
   end
 
   def show
+    @presenter = RoomShowPresenter.new(@room, current_user)
     @rule = Rule.new
     @message = Message.new
-    @messages = @room.messages.includes(:user)
   end
 
   def destroy
@@ -45,7 +45,7 @@ class RoomsController < ApplicationController
   private
 
   def set_room
-    @room = Room.find(params[:id])
+    @room = Room.includes(:users, :rule, messages: { user: { image_attachment: :blob } }).find(params[:id])
   end
 
   def room_params

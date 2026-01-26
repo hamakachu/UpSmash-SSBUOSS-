@@ -11,12 +11,10 @@ development:
   database: UpSmash_SSBUOSS_development
 
 test:
-  <<: *default
-  adapter: mysql2
-  username: root
-  password: saten3103
-  host: localhost
-  database: UpSmash_SSBUOSS_test
+  adapter: sqlite3
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
+  database: db/test.sqlite3
 
 production:
   <<: *default

@@ -1,0 +1,18 @@
+<%# ホスト＆ゲスト %>
+<div class="box machup">
+  <div class="boxtop">
+    ルーム参加者
+  </div>
+  <div class="joinner">
+    <% presenter.participants.each do |user| %>
+      <div class="joinner-box">
+        <% if user.image.attached? %>
+          <%= image_tag user.image, class:"joinner-img" %>
+        <% end %>
+        <div class="joinner-name">
+          <%= link_to user.nickname, user_path(user) %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
